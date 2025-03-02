@@ -1,0 +1,16 @@
+afastapi
+uvicorn
+numpy
+scipy
+pydantic
+scapy
+openpyxl
+joblib
+threadpoolctl
+colorama
+playsound
+speechrecognition
+gtts
+requests
+prometheus_client
+
