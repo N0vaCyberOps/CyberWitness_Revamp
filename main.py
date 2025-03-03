@@ -1,3 +1,5 @@
+
+import sys
 import asyncio
 from utils import setup_logging, global_exception_handler, load_config
 from network.advanced_traffic_monitor import AdvancedTrafficMonitor
@@ -15,14 +17,15 @@ class CyberWitnessN0va:
         """Inicjalizacja komponentów systemu"""
         await self.monitor.initialize()
         await self.alerts.initialize()
-        self.api_task = asyncio.create_task(run_api_server(self.config))
+        self.api_task = asyncio.create_task(run_api_server())  # ✅ Poprawione: usunięto self.config
 
     async def shutdown(self):
         """Bezpieczne wyłączanie systemu"""
         await self.monitor.stop()
         await self.alerts.shutdown()
-        self.api_task.cancel()
-        await self.api_task
+        if self.api_task:
+            self.api_task.cancel()
+            await self.api_task
 
 async def main():
     app = CyberWitnessN0va()

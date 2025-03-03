@@ -1,4 +1,4 @@
-afastapi
+fastapi
 uvicorn
 numpy
 scipy

@@ -4,4 +4,4 @@
 """Moduł inicjalizacyjny dla pakietu network."""
 
 
-utils/analysis/__init__.py
+from utils.analysis.behavioral_analyzer import BehavioralAnalyzer
