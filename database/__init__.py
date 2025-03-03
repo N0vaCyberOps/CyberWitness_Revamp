@@ -1,6 +1,2 @@
-# File: __init__.py
-# Location: CyberWitness_N0va/database/
-
-"""Moduł inicjalizacyjny dla pakietu database."""
-
-__all__ = ["database_handler", "threat_intelligence"]
+from .database_handler import DatabaseHandler
+from .threat_intelligence import ThreatIntelligenceDatabase
