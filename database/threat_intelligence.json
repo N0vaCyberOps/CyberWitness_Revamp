@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "timestamp": "2025-03-03T18:00:00",
+    "source_ip": "192.168.1.99",
+    "destination_ip": "192.168.1.1",
+    "protocol": "UDP",
+    "port": 53,
+    "threat_level": 0.95
+  }
+]

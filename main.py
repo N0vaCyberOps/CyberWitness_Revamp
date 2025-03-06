@@ -1,42 +1,63 @@
-
+import configparser
+import logging
+import time
 import sys
-import asyncio
-from utils import setup_logging, global_exception_handler, load_config
-from network.advanced_traffic_monitor import AdvancedTrafficMonitor
+
+from utils.logging import log_info, log_error, setup_logging  # Import setup_logging
 from alerts.alert_coordinator import AlertCoordinator
-from api.api_server import run_api_server
+from network.advanced_traffic_monitor import AdvancedTrafficMonitor
+from database.database_handler import DatabaseHandler
+from utils.exception_handler import handle_exception
+from utils.performance_monitor import PerformanceMonitor
+from database.database_handler import init_db  # Import the init_db function
 
-class CyberWitnessN0va:
-    def __init__(self):
-        self.config = load_config()
-        self.monitor = AdvancedTrafficMonitor(self.config)
-        self.alerts = AlertCoordinator(self.config)
-        self.api_task = None
 
-    async def startup(self):
-        """Inicjalizacja komponentów systemu"""
-        await self.monitor.initialize()
-        await self.alerts.initialize()
-        self.api_task = asyncio.create_task(run_api_server())  # ✅ Poprawione: usunięto self.config
+def main():
+    """Główna funkcja programu Cyber Witness."""
 
-    async def shutdown(self):
-        """Bezpieczne wyłączanie systemu"""
-        await self.monitor.stop()
-        await self.alerts.shutdown()
-        if self.api_task:
-            self.api_task.cancel()
-            await self.api_task
-
-async def main():
-    app = CyberWitnessN0va()
-    await app.startup()
     try:
-        while True:
-            await asyncio.sleep(3600)
-    except asyncio.CancelledError:
-        await app.shutdown()
+        # Konfiguracja
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+
+        # Inicjalizacja logowania
+        setup_logging(config['logging'])  # Use the setup_logging function
+
+        log_info("Uruchamianie Cyber Witness...")
+
+        # Inicjalizacja monitora wydajności
+        performance_monitor = PerformanceMonitor()
+        performance_monitor.start()
+
+        # Inicjalizacja bazy danych
+        init_db(config['database']['database_file'])  # Initialize the database *before* using DatabaseHandler
+        db_handler = DatabaseHandler(config['database'])
+
+        # Inicjalizacja koordynatora alertów
+        alert_coordinator = AlertCoordinator(db_handler)
+
+        # Inicjalizacja monitora ruchu sieciowego
+        traffic_monitor = AdvancedTrafficMonitor(alert_coordinator, config['network'])
+        traffic_monitor.start_monitoring()
+
+        # Symulacja działania programu
+        try:
+            while True:
+                time.sleep(1)
+                performance_monitor.tick()
+
+        except KeyboardInterrupt:
+            log_info("Zatrzymywanie Cyber Witness (przechwycono KeyboardInterrupt)...")
+
+        finally:
+            traffic_monitor.stop_monitoring()
+            performance_monitor.stop()
+            logging.info("Cyber Witness zatrzymany.")
+
+    except Exception as e:
+        handle_exception(e)
+        sys.exit(1)
+
 
 if __name__ == "__main__":
-    setup_logging()
-    sys.excepthook = global_exception_handler
-    asyncio.run(main())
+    main()
