@@ -1,6 +1,6 @@
 import asyncio
 from scapy.all import IP, AsyncSniffer, get_if_list
-from utils.logging import log_info, log_error  # Correct import
+from utils.logging import log_info, log_error
 from network.packet_analyzer import analyze_packet
 
 
@@ -10,8 +10,9 @@ class AdvancedTrafficMonitor:
     def __init__(self, alert_coordinator, config):
         self.config = config
         self.alert_coordinator = alert_coordinator
-        max_queue_size = int(self.config.get('monitoring', 'max_queue_size', fallback='0'))
-        self.packet_queue = asyncio.Queue(maxsize=max_queue_size)
+        # Corrected: Use getint and provide fallback directly to getint
+        self.max_queue_size = config.getint('monitoring', 'max_queue_size', fallback=0)
+        self.packet_queue = asyncio.Queue(maxsize=self.max_queue_size)
         self._running = False
         self.processed_packets = 0
         self.errors = 0

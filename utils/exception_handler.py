@@ -1,11 +1,9 @@
+# utils/exception_handler.py
 import logging
-import sys
 
-def global_exception_handler(exc_type, exc_value, exc_traceback):
-    """Globalny handler wyjątków - loguje wszystkie błędy"""
-    if issubclass(exc_type, KeyboardInterrupt):
-        sys.__excepthook__(exc_type, exc_value, exc_traceback)
-        return
-    logging.error("❌ Wystąpił nieobsłużony wyjątek!", exc_info=(exc_type, exc_value, exc_traceback))
+def handle_exception(exception):
+    """
+    Globally handles exceptions by logging them.
+    """
 
-sys.excepthook = global_exception_handler
+    logging.exception(f"An unhandled exception occurred: {exception}")

@@ -1,6 +1,7 @@
 import logging
 import configparser
-from utils.config_loader import load_config
+from utils.config_loader import load_config  # Corrected import
+
 
 def setup_logging(config):
     """Configures the logging system based on the config file."""
@@ -15,6 +16,7 @@ def setup_logging(config):
             format="%(asctime)s - %(levelname)s - %(module)s - %(funcName)s - %(message)s",
         )
         log_info(f"Logging initialized. Level: {log_level_str}, File: {log_filename}")
+
 
     except (configparser.NoSectionError, configparser.NoOptionError, AttributeError) as e:
         print(f"Error loading logging configuration: {e}. Using default logging settings.")
