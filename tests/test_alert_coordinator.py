@@ -1,36 +1,61 @@
 import unittest
-from unittest.mock import AsyncMock
+from unittest.mock import AsyncMock, MagicMock
 from alerts.alert_coordinator import AlertCoordinator
-from database.database_handler import DatabaseHandler  # Import DatabaseHandler
+from database.database_handler import DatabaseHandler
 
 
-class TestAlertCoordinator(unittest.IsolatedAsyncioTestCase):  # Use IsolatedAsyncioTestCase
+class TestAlertCoordinator(unittest.IsolatedAsyncioTestCase):
+
+    async def asyncSetUp(self):
+        """Set up for each test."""
+        self.mock_db_handler = AsyncMock(spec=DatabaseHandler)
+        self.coordinator = AlertCoordinator(self.mock_db_handler)
 
     async def test_handle_alert_success(self):
         """Test successful handling of an alert."""
-        mock_db_handler = AsyncMock(spec=DatabaseHandler)  # Use spec to ensure correct interface
-        alert_coordinator = AlertCoordinator(mock_db_handler)
         alert_data = {
             'timestamp': '2024-07-28 11:00:00',
-            'alert_type': 'Test',
-            'alert_data': {'message': 'Test alert'}
+            'source_ip': '192.168.1.1',
+            'destination_ip': '10.0.0.1',
+            'protocol': 'TCP',
+            'threat_level': 'high',
+            'details': 'Possible port scan'
         }
-        await alert_coordinator.handle_alert(alert_data)
-        mock_db_handler.save_alert.assert_awaited_once_with(alert_data)
+        await self.coordinator.handle_alert(alert_data)
+        self.mock_db_handler.save_alert.assert_awaited_once_with(alert_data)
 
     async def test_handle_alert_invalid_input_type(self):
         """Test handling an alert with invalid input type."""
-        mock_db_handler = AsyncMock(spec=DatabaseHandler)
-        alert_coordinator = AlertCoordinator(mock_db_handler)
         with self.assertRaises(TypeError):
-            await alert_coordinator.handle_alert("invalid input")  # Pass a string instead of a dict
+            await self.coordinator.handle_alert("invalid input")
 
     async def test_handle_alert_missing_keys(self):
-        """Test handling an alert with missing keys in the data."""
-        mock_db_handler = AsyncMock(spec=DatabaseHandler)
-        alert_coordinator = AlertCoordinator(mock_db_handler)
-        alert_data = {'timestamp': '2024-07-28 11:00:00'}  # Missing 'alert_type' and 'alert_data'
+        """Test handling an alert with missing keys."""
+        alert_data = {'timestamp': '2024-07-28 11:00:00'}  # Missing keys
         with self.assertRaises(ValueError):
-            await alert_coordinator.handle_alert(alert_data)
+            await self.coordinator.handle_alert(alert_data)
 
-    async def
+    async def test_handle_alert_database_error(self):
+        """Test handling a database error."""
+        self.mock_db_handler.save_alert.side_effect = Exception("Simulated database error")
+        alert_data = {
+            'timestamp': '2024-07-28 11:00:00',
+            'source_ip': '192.168.1.1',
+            'destination_ip': '10.0.0.1',
+            'protocol': 'TCP',
+            'threat_level': 'high',
+            'details': 'Possible port scan'
+        }
+        with self.assertRaises(Exception) as context:
+            await self.coordinator.handle_alert(alert_data)
+        self.assertEqual(str(context.exception), "Simulated database error")
+        self.mock_db_handler.save_alert.assert_awaited_once_with(alert_data)
+
+    def test_invalid_db_handler_initialization(self):
+        """Test initialization with an invalid db_handler type."""
+        with self.assertRaises(TypeError):
+            AlertCoordinator("not a db handler")
+
+
+if __name__ == '__main__':
+    unittest.main()

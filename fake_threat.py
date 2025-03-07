@@ -26,15 +26,17 @@ def simulate_port_scan(target_ip, port_range_start, port_range_end, delay=0.1):
         time.sleep(delay)
     logging.info("Zakończono symulację skanowania portów.")
 
-def simulate_brute_force_login(target_url, username, password_list_file, delay=0.5):
+def simulate_brute_force_login(target_url, username, password_list, delay=0.5):
     """Symuluje atak brute-force na formularz logowania."""
     logging.info(f"Rozpoczynanie symulacji ataku brute-force na {target_url} (użytkownik: {username})...")
 
+    # passwords.txt is located in main Cyber_Witness_last directory
     try:
-        with open(password_list_file, 'r') as f:
+        #with open(password_list_file, 'r') as f:  <- Removed the argument
+        with open("test_passwords.txt", 'r') as f: #<-- open the file, like that.
             passwords = [line.strip() for line in f]
     except FileNotFoundError:
-        logging.error(f"Nie znaleziono pliku z hasłami: {password_list_file}")
+        logging.error(f"Nie znaleziono pliku z hasłami.") # Removed : {password_list_file}
         return
 
     for password in passwords:
@@ -57,7 +59,6 @@ def simulate_brute_force_login(target_url, username, password_list_file, delay=0
         time.sleep(delay)
 
     logging.info("Zakończono symulację ataku brute-force. Hasło nie zostało złamane.")
-
 
 def simulate_data_exfiltration(target_url, file_to_exfiltrate, delay = 0.2):
     """Symulacja eksfiltracji danych."""
@@ -89,9 +90,9 @@ def main():
     parser.add_argument('--port_start', type=int, default=1, help="Początkowy port do skanowania (dla port_scan).")
     parser.add_argument('--port_end', type=int, default=1024, help="Końcowy port do skanowania (dla port_scan).")
     parser.add_argument('--username', default='admin', help="Nazwa użytkownika do ataku brute-force.")
-    parser.add_argument('--password_file', default='passwords.txt',
-                        help="Ścieżka do pliku z listą haseł (dla brute_force).")
-    parser.add_argument('--exfil_file', default='secret.txt', help="Ścieżka do pliku do eksfiltracji (dla data_exfiltration).")
+    #parser.add_argument('--password_file', default='passwords.txt',
+                        #help="Ścieżka do pliku z listą haseł (dla brute_force).") #Removed password_file argument.
+    parser.add_argument('--exfil_file', default='test_secret.txt', help="Ścieżka do pliku do eksfiltracji (dla data_exfiltration).") #Corrected default name.
     parser.add_argument('--delay', type=float, default=0.1, help="Opóźnienie między próbami ataku (w sekundach).")
 
     args = parser.parse_args()
@@ -106,14 +107,13 @@ def main():
         target_url = args.target
         if not target_url.startswith("http://") and not target_url.startswith("https://"):
             target_url = "http://" + target_url
-        simulate_brute_force_login(target_url, args.username, args.password_file, args.delay)
+        simulate_brute_force_login(target_url, args.username, "test_passwords.txt", args.delay) # Hardcoded test_passwords.txt file.
     elif args.type == 'data_exfiltration':
         # Upewnij się, że cel jest URL-em
         target_url = args.target
         if not target_url.startswith("http://") and not target_url.startswith("https://"):
             target_url = "http://" + target_url
         simulate_data_exfiltration(target_url, args.exfil_file, args.delay)
-
 
 if __name__ == "__main__":
     main()

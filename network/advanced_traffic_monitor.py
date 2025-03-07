@@ -1,6 +1,6 @@
 import asyncio
 from scapy.all import IP, AsyncSniffer, get_if_list
-from utils.logging import log_info, log_error
+from utils.logging import log_info, log_error  # Correct import
 from network.packet_analyzer import analyze_packet
 
 
@@ -11,7 +11,7 @@ class AdvancedTrafficMonitor:
         self.config = config
         self.alert_coordinator = alert_coordinator
         # Corrected: Use getint and provide fallback directly to getint
-        self.max_queue_size = config.getint('monitoring', 'max_queue_size', fallback=0)
+        self.max_queue_size = config.getint('monitoring', 'max_queue_size', fallback=0)  # Use getint
         self.packet_queue = asyncio.Queue(maxsize=self.max_queue_size)
         self._running = False
         self.processed_packets = 0
@@ -36,11 +36,14 @@ class AdvancedTrafficMonitor:
         self.sniffer = AsyncSniffer(iface=self.valid_interfaces, prn=self.handle_packet_wrapper, store=False)
         self.sniffer.start()
 
+
+
     async def handle_packet_wrapper(self, packet):
         """
         Wrapper do obsługi pakietów.
         """
         await self.handle_packet(packet)
+
 
     async def handle_packet(self, packet):
         """Obsługuje pojedynczy pakiet, analizuje go i wrzuca do kolejki."""
@@ -65,12 +68,13 @@ class AdvancedTrafficMonitor:
         """Rozpoczyna monitorowanie."""
         await self.initialize()
 
+
     async def stop_monitoring(self):
         """Zatrzymuje monitorowanie."""
         log_info("🛑 Zatrzymuję AdvancedTrafficMonitor...")
         self._running = False
         if self.sniffer:
-            self.sniffer.stop()
+             self.sniffer.stop()
         while not self.packet_queue.empty():
             try:
                 self.packet_queue.get_nowait()

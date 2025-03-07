@@ -1,99 +1,89 @@
 # tests/test_database_handler.py
 import unittest
-import sqlite3
+import configparser
 import os
 import json
-import tempfile  # Import tempfile
-from database.database_handler import DatabaseHandler, init_db
 import asyncio
+from database.database_handler import DatabaseHandler, init_db  # Import absolutny
+
 
 class TestDatabaseHandler(unittest.IsolatedAsyncioTestCase):
 
     async def asyncSetUp(self):
-        """Create a temporary database for testing."""
-        self.temp_db_file = tempfile.NamedTemporaryFile(delete=False)  # Create a temporary file
-        self.db_path = self.temp_db_file.name
-        self.temp_db_file.close()  # Close the file handle so init_db can use it
-        init_db(self.db_path)  # Initialize the database
-        self.config = {'database_file': self.db_path}
-        self.db_handler = DatabaseHandler(self.config)
+        """Konfiguracja przed każdym testem."""
+        # Załaduj TESTOWĄ konfigurację
+        config_path = os.path.join(os.path.dirname(__file__), "test_config.ini")
+        self.config = configparser.ConfigParser()
+        self.config.read(config_path)
 
-    async def test_save_and_retrieve_threat(self):
-        """Test saving and retrieving threat data."""
-        threat_data = {
-            'timestamp': '2024-01-01 12:00:00',
-            'source_ip': '192.168.1.1',
+        # Zainicjuj bazę danych (używając testowego pliku bazy danych)
+        await init_db(self.config['database']['database_file']) # Dodaj await
+
+        self.db_handler = DatabaseHandler(self.config['database'])
+        self.test_alert_data = {
+            'timestamp': '2024-04-27 12:00:00',
+            'alert_type': 'Test Alert',
+            'alert_data': {'source_ip': '192.168.1.2', 'ports': [22, 80, 443]}
+        }
+        self.test_threat_data = {
+            'timestamp': '2024-04-27 13:00:00',
+            'source_ip': '192.168.1.3',
             'destination_ip': '10.0.0.1',
             'protocol': 'TCP',
             'threat_level': 0.8,
-            'details': json.dumps({'type': 'SYN flood'})
+            'details': 'Possible port scan'
         }
-        await self.db_handler.save_threat(threat_data)
-        retrieved_threats = await self.db_handler.get_recent_threats()
-        self.assertEqual(len(retrieved_threats), 1)
-        retrieved_threat = retrieved_threats[0]
-
-        # Compare each field individually (because of the ID)
-        self.assertEqual(retrieved_threat['timestamp'], threat_data['timestamp'])
-        self.assertEqual(retrieved_threat['source_ip'], threat_data['source_ip'])
-        self.assertEqual(retrieved_threat['destination_ip'], threat_data['destination_ip'])
-        self.assertEqual(retrieved_threat['protocol'], threat_data['protocol'])
-        self.assertEqual(retrieved_threat['threat_level'], threat_data['threat_level'])
-        self.assertEqual(retrieved_threat['details'], threat_data['details'])
-
 
     async def test_save_and_retrieve_alert(self):
-        """Test saving and retrieving alert data."""
-        alert_data = {
-            'timestamp': '2024-01-01 13:00:00',
-            'alert_type': 'Port Scan',
-            'alert_data': {'source_ip': '192.168.1.2', 'ports': [22, 80, 443]}
-        }
-
-        await self.db_handler.save_alert(alert_data)
-        retrieved_alerts = await self.db_handler.get_recent_alerts()
+        """Testuj zapisywanie i pobieranie alertu."""
+        await self.db_handler.save_alert(self.test_alert_data)
+        retrieved_alerts = await self.db_handler.get_recent_alerts(limit=1)
         self.assertEqual(len(retrieved_alerts), 1)
         retrieved_alert = retrieved_alerts[0]
 
-        # Compare individual fields
-        self.assertEqual(retrieved_alert['timestamp'], alert_data['timestamp'])
-        self.assertEqual(retrieved_alert['alert_type'], alert_data['alert_type'])
-        self.assertEqual(retrieved_alert['alert_data'], alert_data['alert_data'])
+        # Porównaj słownik bezpośrednio, a nie string JSON
+        self.assertEqual(retrieved_alert['alert_data'], self.test_alert_data['alert_data'])
+        self.assertEqual(retrieved_alert['timestamp'], self.test_alert_data['timestamp'])
+        self.assertEqual(retrieved_alert['alert_type'], self.test_alert_data['alert_type'])
+    async def test_save_and_retrieve_threat(self):
+        """Testuj zapisywanie i pobieranie zagrożenia."""
+        await self.db_handler.save_threat(self.test_threat_data)
+        retrieved_threats = await self.db_handler.get_recent_threats(limit=1)
+        self.assertEqual(len(retrieved_threats), 1)
+        retrieved_threat = retrieved_threats[0]
+        # Konwertuj pobrane zagrożenie na słownik do porównania, obsługując JSON w 'details', jeśli to konieczne
+        self.assertEqual(retrieved_threat['timestamp'], self.test_threat_data['timestamp'])
+        self.assertEqual(retrieved_threat['source_ip'], self.test_threat_data['source_ip'])
+        self.assertEqual(retrieved_threat['destination_ip'], self.test_threat_data['destination_ip'])
+        self.assertEqual(retrieved_threat['protocol'], self.test_threat_data['protocol'])
+        self.assertEqual(retrieved_threat['threat_level'], self.test_threat_data['threat_level'])
+        self.assertEqual(retrieved_threat['details'], self.test_threat_data['details'])
+
+    async def test_get_recent_threats_empty(self):
+        """Testuj pobieranie ostatnich zagrożeń, gdy baza danych jest pusta."""
+        threats = await self.db_handler.get_recent_threats()
+        self.assertEqual(threats, [])
 
     async def test_get_recent_threats_limit(self):
-        # Save multiple threats
+        """Testuj pobieranie ograniczonej liczby ostatnich zagrożeń."""
+        # Zapisz wiele zagrożeń
         for i in range(5):
-            threat_data = {
-                'timestamp': f'2024-01-01 12:00:{i:02}',
-                'source_ip': '192.168.1.1',
-                'destination_ip': '10.0.0.1',
-                'protocol': 'TCP',
-                'threat_level': 0.8,
-                'details': json.dumps({'type': 'SYN flood'})
-            }
+            threat_data = self.test_threat_data.copy()
+            threat_data['timestamp'] = f'2024-04-27 13:00:{i}'
             await self.db_handler.save_threat(threat_data)
 
-        # Retrieve only 3 recent threats
-        retrieved_threats = await self.db_handler.get_recent_threats(limit=3)
-        self.assertEqual(len(retrieved_threats), 3)
+        # Pobierz ograniczoną liczbę zagrożeń
+        limited_threats = await self.db_handler.get_recent_threats(limit=3)
+        self.assertEqual(len(limited_threats), 3)
 
 
     async def test_get_recent_alerts_limit(self):
-         # Save multiple alerts
-         for i in range(5):
-             alert_data = {
-                 'timestamp': f'2024-01-01 13:00:{i:02}',
-                 'alert_type': 'Port Scan',
-                 'alert_data': {'source_ip': '192.168.1.2', 'ports': [22, 80, 443]}
-             }
-             await self.db_handler.save_alert(alert_data)
-         retrieved_alerts = await self.db_handler.get_recent_alerts(limit=2)
-         self.assertEqual(len(retrieved_alerts), 2)
+        """Testuj pobieranie ograniczonej liczby ostatnich alertów."""
+        # Zapisz wiele alertów
+        for i in range(5):
+            alert_data = self.test_alert_data.copy()
+            alert_data['timestamp'] = f'2024-04-27 12:00:{i}'
+            await self.db_handler.save_alert(alert_data)
 
-    async def asyncTearDown(self):
-        """Clean up the temporary database after each test."""
-        if os.path.exists(self.db_path):
-            os.remove(self.db_path)
-
-if __name__ == '__main__':
-    unittest.main()
+        # Pobierz ograniczoną liczbę alertów
+        limited_alerts = await self.db_handler.
