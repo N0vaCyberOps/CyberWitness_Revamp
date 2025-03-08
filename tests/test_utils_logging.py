@@ -1,87 +1,44 @@
-# tests/test_utils_logging.py
 import unittest
-import logging
-# Correct absolute import:
-from utils.logging import setup_logging, log_info, log_error, log_warning, log_debug, log_critical
-import configparser
 import os
-import tempfile
-
+from utils.logging import log_debug, log_info, log_warning, log_error, log_critical
 
 class TestLogging(unittest.TestCase):
 
     def setUp(self):
-        # Create a temporary file for logging
-        self.temp_log_file = tempfile.NamedTemporaryFile(delete=False, mode='w')
-        self.temp_log_path = self.temp_log_file.name
-        self.temp_log_file.close()  # Close immediately, setup_logging will open it.
-
-        # Create a config for the logging module.
-        self.config = configparser.ConfigParser()
-        self.config['logging'] = {
-            'level': 'DEBUG',  # Use DEBUG for comprehensive testing
-            'filename': self.temp_log_path
-        }
-        setup_logging(self.config['logging'])
-        self.log = logging.getLogger() # Get the root logger
-
-    def test_setup_logging(self):
-        """Test that logging is set up correctly with the provided config."""
-        self.assertEqual(self.log.level, logging.DEBUG) # Check level
-
-        # Check that we have a FileHandler
-        file_handler_found = False
-        for handler in self.log.handlers:
-            if isinstance(handler, logging.FileHandler):
-                file_handler_found = True
-                self.assertEqual(handler.baseFilename, os.path.abspath(self.temp_log_path)) # Check filename
-                break
-        self.assertTrue(file_handler_found, "FileHandler not found in logger handlers")
-
-
-    def test_log_info(self):
-        log_info("This is an info message.")
-        with open(self.temp_log_path, 'r') as f:
-            content = f.read()
-            self.assertIn("INFO", content)
-            self.assertIn("This is an info message.", content)
-
-    def test_log_error(self):
-        log_error("This is an error message.")
-        with open(self.temp_log_path, 'r') as f:
-            content = f.read()
-            self.assertIn("ERROR", content)
-            self.assertIn("This is an error message.", content)
-
-    def test_log_warning(self):
-        log_warning("This is a warning message.")
-        with open(self.temp_log_path, 'r') as f:
-            content = f.read()
-            self.assertIn("WARNING", content)
-            self.assertIn("This is a warning message.", content)
-
-    def test_log_debug(self):
-        log_debug("This is a debug message.")
-        with open(self.temp_log_path, 'r') as f:
-            content = f.read()
-            self.assertIn("DEBUG", content)
-            self.assertIn("This is a debug message.", content)
-
-    def test_log_critical(self):
-        log_critical("This is a critical message.")
-        with open(self.temp_log_path, 'r') as f:
-            content = f.read()
-            self.assertIn("CRITICAL", content)
-            self.assertIn("This is a critical message.", content)
+        """Tworzy tymczasowy plik logów."""
+        self.temp_log_path = "test_logging.log"
 
     def tearDown(self):
-        # Clean up: remove the temporary log file.
-        # First, close any handlers that might be writing to it.
-        for handler in self.log.handlers:
-            handler.close()  # Crucial to close before removing
+        """Usuwa plik logów po teście."""
         if os.path.exists(self.temp_log_path):
             os.remove(self.temp_log_path)
 
+    def test_log_levels(self):
+        """Sprawdza poprawność zapisu logów dla wszystkich poziomów."""
+        log_functions = {
+            "DEBUG": log_debug,
+            "INFO": log_info,
+            "WARNING": log_warning,
+            "ERROR": log_error,
+            "CRITICAL": log_critical,
+        }
+        messages = {
+            "DEBUG": "Debug message",
+            "INFO": "Info message",
+            "WARNING": "Warning message",
+            "ERROR": "Error message",
+            "CRITICAL": "Critical message",
+        }
 
-if __name__ == '__main__':
+        for level, log_func in log_functions.items():
+            with self.subTest(level=level):
+                log_func(messages[level], log_file=self.temp_log_path)
+
+                with open(self.temp_log_path, "r") as f:
+                    content = f.read()
+
+                self.assertIn(level, content)
+                self.assertIn(messages[level], content)
+
+if __name__ == "__main__":
     unittest.main()

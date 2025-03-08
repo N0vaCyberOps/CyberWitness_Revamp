@@ -1,0 +1,17 @@
+2025-03-08 12:09:15,303 - INFO - logging - log_info - Logging initialized. Level: INFO, File: cyber_witness.log
+2025-03-08 12:09:15,303 - INFO - logging - log_info - Uruchamianie Cyber Witness...
+2025-03-08 12:09:15,321 - INFO - logging - log_info - \u2705 Baza danych zainicjalizowana.
+2025-03-08 12:09:15,321 - ERROR - exception_handler - handle_exception - An unhandled exception occurred: SectionProxy.get() got multiple values for argument 'fallback'
+Traceback (most recent call last):
+  File "C:\Users\Marek Stobinski\OneDrive\Pulpit\Cyber_Witness_last\main.py", line 50, in main
+    traffic_monitor = AdvancedTrafficMonitor(alert_coordinator, config['network'])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Marek Stobinski\OneDrive\Pulpit\Cyber_Witness_last\network\advanced_traffic_monitor.py", line 14, in __init__
+    self.max_queue_size = config.getint('monitoring', 'max_queue_size', fallback=0)  # Use getint
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SectionProxy.get() got multiple values for argument 'fallback'
+[2025-03-08 12:18:45] [INFO] TEST_EVENT - To jest testowy log.
+[2025-03-08 12:19:28] [INFO] TEST_EVENT - To jest testowy log.
+[2025-03-08 12:47:39] [INFO] TEST_EVENT - To jest testowy log.
+[2025-03-08 21:19:35] [INFO] TEST_EVENT - To jest testowy log.
+[2025-03-08 21:20:15] [INFO] TEST_EVENT - To jest testowy log.
