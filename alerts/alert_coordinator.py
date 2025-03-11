@@ -1,50 +1,50 @@
-# alerts/alert_coordinator.py
-from utils.logging import log_info, log_error
-from database.database_handler import DatabaseHandler  # Corrected import
-
+import smtplib
+import asyncio
+import requests
+import logging
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from utils.config_manager import ConfigManager
 
 class AlertCoordinator:
-    """
-    Koordynuje obsługę alertów (powiadomienia, zapis do bazy danych).
-    """
+    def __init__(self):
+        self.config = ConfigManager()
 
-    def __init__(self, db_handler):
-        """
-        Inicjalizuje koordynatora alertów.
-
-        Args:
-            db_handler (DatabaseHandler): Instancja DatabaseHandlera.
-        """
-        if not isinstance(db_handler, DatabaseHandler):
-            raise TypeError("db_handler musi być instancją DatabaseHandler")
-        self.db_handler = db_handler
-
-    async def handle_alert(self, alert_data):
-        """
-        Obsługuje alert.  Obecnie: zapisuje do bazy danych.
-        Docelowo: wysyłanie powiadomień, itp.
-
-        Args:
-            alert_data (dict): Dane alertu.  Powinny zawierać: timestamp,
-                               source_ip, destination_ip, protocol,
-                               threat_level, details.
-        """
+    async def send_email_alert(self, subject, body):
+        """Wysyła e-mail z alertem."""
+        if not self.config.get_config("email_alerts", False):
+            return
         try:
-            if not isinstance(alert_data, dict):
-                raise TypeError("alert_data musi być słownikiem")
-            required_keys = ("timestamp", "source_ip", "destination_ip", "protocol", "threat_level", "details")
-            if not all(key in alert_data for key in required_keys):
-                raise ValueError(f"alert_data musi zawierać klucze: {required_keys}")
+            msg = MIMEMultipart()
+            msg["From"] = self.config.get_config("smtp_user")
+            msg["To"] = self.config.get_config("recipient_email", "recipient@example.com")
+            msg["Subject"] = subject
+            msg.attach(MIMEText(body, "plain"))
 
-            log_info(f"🚨 Otrzymano alert: {alert_data}")
-            await self.db_handler.save_alert(alert_data)
+            with smtplib.SMTP(self.config.get_config("smtp_server"), self.config.get_config("smtp_port")) as server:
+                server.starttls()
+                server.login(self.config.get_config("smtp_user"), self.config.get_config("smtp_password"))
+                server.sendmail(msg["From"], msg["To"], msg.as_string())
 
-        except TypeError as e:
-            log_error(f"❌ Błąd typu podczas obsługi alertu: {e}")
-            raise  # Re-raise the exception after logging
-        except ValueError as e:
-            log_error(f"❌ Błąd wartości podczas obsługi alertu: {e}")
-            raise
+            logging.info(f"Email alert sent: {subject}")
         except Exception as e:
-            log_error(f"❌ Nieoczekiwany błąd podczas obsługi alertu: {e}")
-            raise
+            logging.error(f"Error sending email: {e}")
+
+    async def send_webhook_alert(self, message):
+        """Wysyła powiadomienie do webhooka."""
+        webhook_url = self.config.get_config("webhook_url")
+        if not webhook_url:
+            return
+
+        try:
+            response = requests.post(webhook_url, json={"alert": message})
+            logging.info(f"Webhook alert sent, response: {response.status_code}")
+        except Exception as e:
+            logging.error(f"Error sending webhook alert: {e}")
+
+    async def trigger_alert(self, message):
+        """Wyzwala alert (e-mail + webhook)."""
+        await asyncio.gather(
+            self.send_email_alert("CyberWitness Alert", message),
+            self.send_webhook_alert(message)
+        )

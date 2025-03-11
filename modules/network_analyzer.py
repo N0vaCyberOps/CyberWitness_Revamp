@@ -1,47 +1,43 @@
 from scapy.all import sniff, IP, TCP, UDP
 import logging
+from utils.ai_analyzer import AIAnalyzer
+from utils.siem_logger import SIEMLogger
+from utils.geolocation import GeoLocation
+from utils.mitre_attack import MITREAttack
+from prometheus_client import Counter, start_http_server
 
-# Konfiguracja logowania
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+# Inicjalizacja modułów
+ai_analyzer = AIAnalyzer()
+ai_analyzer.train_model()
+siem_logger = SIEMLogger()
+geo_locator = GeoLocation()
+mitre_attack = MITREAttack()
 
-class NetworkAnalyzer:
-    """Moduł do przechwytywania i analizy pakietów sieciowych."""
+# Prometheus - licznik anomalii
+anomalies_detected = Counter('anomalies_detected', 'Total number of detected network anomalies')
 
-    def __init__(self, log_file: str = None):
-        """Inicjalizacja analizatora z opcjonalnym plikiem logowania."""
-        self.log_file = log_file
-        if log_file:
-            file_handler = logging.FileHandler(log_file)
-            file_handler.setLevel(logging.INFO)
-            logging.getLogger().addHandler(file_handler)
+def analyze_packet(packet):
+    """Analizuje pakiety sieciowe i wykrywa anomalie."""
+    if IP in packet:
+        ip_src = packet[IP].src
+        ip_dst = packet[IP].dst
+        summary = f"Packet: {ip_src} -> {ip_dst}"
 
-    def analyze_packet(self, packet):
-        """Analizuje pojedynczy pakiet sieciowy."""
-        try:
-            if IP in packet:
-                ip_src = packet[IP].src
-                ip_dst = packet[IP].dst
-                protocol = packet[IP].proto
-                logging.info(f"IP Packet: {ip_src} -> {ip_dst}, Protocol: {protocol}")
+        # Geolokalizacja atakującego
+        geo_info = geo_locator.get_location(ip_src)
 
-                if TCP in packet:
-                    tcp_sport = packet[TCP].sport
-                    tcp_dport = packet[TCP].dport
-                    logging.info(f"TCP Packet: {ip_src}:{tcp_sport} -> {ip_dst}:{tcp_dport}")
-                elif UDP in packet:
-                    udp_sport = packet[UDP].sport
-                    udp_dport = packet[UDP].dport
-                    logging.info(f"UDP Packet: {ip_src}:{udp_sport} -> {ip_dst}:{udp_dport}")
-        except Exception as e:
-            logging.error(f"Błąd podczas analizy pakietu: {e}")
+        # Mapowanie do MITRE ATT&CK
+        attack_tactic = mitre_attack.map_threat("DDoS Attack")  # Testowe przypisanie
 
-    def capture_and_analyze(self, count: int = 10):
-        """Przechwytuje pakiety i analizuje je."""
-        try:
-            sniff(prn=self.analyze_packet, count=count, store=False)
-        except Exception as e:
-            logging.error(f"Błąd podczas przechwytywania pakietów: {e}")
+        if ai_analyzer.detect_anomaly(summary):
+            logging.warning(f"🔴 Wykryto anomalię: {summary} | Lokalizacja: {geo_info} | MITRE: {attack_tactic}")
+            anomalies_detected.inc()
+            siem_logger.log_event("network_anomaly", f"Anomaly detected: {summary}", {
+                "src_ip": ip_src, "dst_ip": ip_dst, "location": geo_info, "mitre_tactic": attack_tactic
+            })
+        else:
+            logging.info(f"🟢 Normalny pakiet: {summary}")
 
 if __name__ == "__main__":
-    analyzer = NetworkAnalyzer(log_file="network_analysis.log")
-    analyzer.capture_and_analyze()
+    start_http_server(8000)  # Endpoint Prometheus
+    sniff(prn=analyze_packet, count=100)
