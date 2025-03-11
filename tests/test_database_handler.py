@@ -1,18 +1,19 @@
+# test_database_handler.py
 import pytest
 import tempfile
-import aiosqlite
-from database.database_handler import DatabaseHandler, init_db
+from database.database_handler import DatabaseHandler
 
 @pytest.mark.asyncio
-async def test_get_recent_alerts_empty():
-    """Test sprawdza, czy zwracana lista alertów jest pusta dla nowej bazy."""
-    async with tempfile.NamedTemporaryFile(delete=False) as temp_db_file:
-        db_path = temp_db_file.name
-
-    await init_db(db_path)
-    db_handler = DatabaseHandler({"database_file": db_path})
-
-    await db_handler.connect()
-    alerts = await db_handler.get_recent_alerts(5)
-
-    assert alerts == []
+async def test_get_recent_alerts():
+    with tempfile.NamedTemporaryFile(suffix=".db") as tmp:
+        db = DatabaseHandler({"database_file": tmp.name})
+        await db.initialize()
+        
+        # Test pustej bazy
+        assert await db.get_recent_alerts() == []
+        
+        # Test z danymi
+        await db.save_alert("TEST", {"key": "value"})
+        results = await db.get_recent_alerts()
+        assert len(results) == 1
+        assert results[0]["alert_type"] == "TEST"

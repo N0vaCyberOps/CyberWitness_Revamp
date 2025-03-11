@@ -1,44 +1,20 @@
-import unittest
-import os
+# test_utils_logging.py
+import logging
+import pytest
 from utils.log_event import log_event
 
-class TestLogging(unittest.TestCase):
+def test_log_levels(caplog):
+    """Testuje poprawność logowania dla wszystkich poziomów z weryfikacją outputu."""
+    with caplog.at_level(logging.DEBUG):
+        log_event("DEBUG", "Debug message")
+        log_event("INFO", "Info message")
+        log_event("WARNING", "Warning message")
+        log_event("ERROR", "Error message")
+        log_event("CRITICAL", "Critical message")
 
-    def setUp(self):
-        """Tworzy tymczasowy plik logów."""
-        self.temp_log_path = "test_logging.log"
-
-    def tearDown(self):
-        """Usuwa plik logów po teście."""
-        if os.path.exists(self.temp_log_path):
-            os.remove(self.temp_log_path)
-
-    def test_log_levels(self):
-        """Sprawdza poprawność zapisu logów dla wszystkich poziomów."""
-        log_functions = {
-            "DEBUG": log_debug,
-            "INFO": log_info,
-            "WARNING": log_warning,
-            "ERROR": log_error,
-            "CRITICAL": log_critical,
-        }
-        messages = {
-            "DEBUG": "Debug message",
-            "INFO": "Info message",
-            "WARNING": "Warning message",
-            "ERROR": "Error message",
-            "CRITICAL": "Critical message",
-        }
-
-        for level, log_func in log_functions.items():
-            with self.subTest(level=level):
-                log_func(messages[level], log_file=self.temp_log_path)
-
-                with open(self.temp_log_path, "r") as f:
-                    content = f.read()
-
-                self.assertIn(level, content)
-                self.assertIn(messages[level], content)
-
-if __name__ == "__main__":
-    unittest.main()
+    records = caplog.records
+    assert len(records) == 5
+    assert records[0].message == "Debug message"
+    assert records[0].levelname == "DEBUG"
+    assert records[3].levelname == "ERROR"
+    assert "Critical message" in caplog.text

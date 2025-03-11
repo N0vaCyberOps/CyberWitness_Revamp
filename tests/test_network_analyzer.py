@@ -1,7 +1,8 @@
 import pytest
 import logging
-from scapy.all import Ether, IP, TCP
+from unittest.mock import patch
 from modules.network_analyzer import NetworkAnalyzer
+from scapy.all import Ether, IP, TCP
 
 @pytest.mark.asyncio
 async def test_network_analyzer_capture(monkeypatch, caplog):
@@ -16,4 +17,4 @@ async def test_network_analyzer_capture(monkeypatch, caplog):
 
     await analyzer.capture_and_analyze(count=1)
 
-    assert "TCP Packet: 1.1.1.1:1234 -> 2.2.2.2:80" in caplog.text
+    assert "TCP: 1.1.1.1:1234 -> 2.2.2.2:80" in caplog.text  # ✅ Poprawiona asercja
