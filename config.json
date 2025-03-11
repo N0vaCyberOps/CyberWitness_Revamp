@@ -1,0 +1,5 @@
+{
+    "log_level": "INFO",
+    "screenshot_path": "screenshots/",
+    "default_capture_count": 10
+}

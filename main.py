@@ -1,82 +1,124 @@
-# main.py
-import asyncio
 import configparser
 import logging
-import sys
+import json
+import asyncio
+import aiosqlite
+from tenacity import retry, stop_after_attempt, wait_exponential
+from traffic_monitor import AdvancedTrafficMonitor
 
-from utils.logging import log_info, log_error, setup_logging  # Poprawiony import
-from alerts.alert_coordinator import AlertCoordinator
-from network.advanced_traffic_monitor import AdvancedTrafficMonitor
-from database.database_handler import DatabaseHandler, init_db
-from utils.exception_handler import handle_exception
+def setupLogging():
+    """Set up logging with default configuration."""
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        filename='cyber_witness.log'
+    )
 
+class DatabaseHandler:
+    """Asynchronous handler for SQLite database operations."""
+
+    def __init__(self, db_path: str):
+        self.db_path = db_path
+        self.db = None
+
+    async def connect(self) -> None:
+        """Establish database connection."""
+        self.db = await aiosqlite.connect(self.db_path)
+
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
+    async def execute_query(self, query: str, params: tuple = None) -> None:
+        """Execute a database query with retry mechanism."""
+        async with self.db as db:
+            if params:
+                await db.execute(query, params)
+            else:
+                await db.execute(query)
+            await db.commit()
+
+    async def fetch_all(self, query: str, params: tuple = None) -> list:
+        """Fetch all results from a query."""
+        async with self.db as db:
+            cursor = await db.execute(query, params)
+            return await cursor.fetchall()
+
+    async def close(self) -> None:
+        """Close database connection."""
+        if self.db:
+            await self.db.close()
+
+class AlertCoordinator:
+    """Coordinator for managing alerts with priority queues."""
+
+    def __init__(self, db_handler: DatabaseHandler):
+        self.db_handler = db_handler
+        self.high_priority_queue = asyncio.Queue()
+        self.low_priority_queue = asyncio.Queue()
+
+    async def add_alert(self, alert_data: dict, priority: str = 'low') -> None:
+        """Add alert to appropriate queue based on priority."""
+        alert_data['priority'] = priority
+        if priority == 'high':
+            await self.high_priority_queue.put(alert_data)
+            await self.process_alert(alert_data)
+        else:
+            await self.low_priority_queue.put(alert_data)
+
+    async def process_alert(self, alert_data: dict) -> None:
+        """Process and log alert to database."""
+        query = "INSERT INTO alerts (data, priority) VALUES (?, ?)"
+        await self.db_handler.execute_query(query, (json.dumps(alert_data), alert_data['priority']))
+
+    async def background_processing(self) -> None:
+        """Background task for processing low priority alerts."""
+        while True:
+            try:
+                alert_data = await self.low_priority_queue.get()
+                await self.process_alert(alert_data)
+                self.low_priority_queue.task_done()
+            except Exception as e:
+                logging.error(f"Error processing low priority alert: {str(e)}")
+            await asyncio.sleep(1)
 
 async def main():
-    """Główna funkcja programu Cyber Witness."""
-
-    # Konfiguracja logowania
+    """Main asynchronous function to run the application."""
     config = configparser.ConfigParser()
-    try:
-        config.read('config.ini')
-    except configparser.Error as e:
-        print(f"Błąd wczytywania pliku konfiguracyjnego config.ini: {e}")
-        sys.exit(1)
+    config.read('config.ini')
 
     try:
-        setup_logging(config['logging']) #Konfiguracja z pliku
-    except (KeyError, configparser.NoSectionError) as e:
-        print(f"Błąd konfiguracji logowania: {e}. Sprawdź plik config.ini.")
-        sys.exit(1)
+        setupLogging()
+        logging.info("Starting Cyber Witness: Network Sniffer")
 
-    log_info("Uruchamianie Cyber Witness...")
+        db_path = config.get('database', 'database_file')
+        db_handler = DatabaseHandler(db_path)
+        await db_handler.connect()
 
-    # Inicjalizacja bazy danych, przed utworzeniem handlera
-    try:
-        await init_db(config['database']['database_file'])
-        db_handler = DatabaseHandler(config['database'])
-    except KeyError:
-        log_error("Brak sekcji [database] lub klucza 'database_file' w config.ini.")
-        sys.exit(1)
-    except Exception as e:
-        handle_exception(e)
-        sys.exit(1)
+        alert_coordinator = AlertCoordinator(db_handler)
+        background_task = asyncio.create_task(alert_coordinator.background_processing())
 
-
-    # Inicjalizacja koordynatora alertów
-    alert_coordinator = AlertCoordinator(db_handler)
-
-    # Inicjalizacja monitora ruchu
-    try:
-        traffic_monitor = AdvancedTrafficMonitor(alert_coordinator, config['network'])
+        interface = config.get('network', 'interface', fallback='')
+        traffic_monitor = AdvancedTrafficMonitor(interface, alert_coordinator)
         await traffic_monitor.start_monitoring()
-    except KeyError:
-        log_error("Brak sekcji [network] lub klucza 'interface' w config.ini.")
-        sys.exit(1)
-    except Exception as e:
-        handle_exception(e)  # Ogólna obsługa błędów, w tym błędów Scapy
-        sys.exit(1)
 
-    log_info("Monitoring ruchu sieciowego uruchomiony. Wciśnij CTRL+C, aby zatrzymać.")
-
-    # Główna pętla
-    try:
         while True:
-            await asyncio.sleep(1)  # Czekaj 1 sekundę, nie blokuj CPU
-
-    except KeyboardInterrupt:
-        log_info("Zatrzymywanie Cyber Witness (przechwycono KeyboardInterrupt)...")
+            await asyncio.sleep(1)
+    except (configparser.NoSectionError, configparser.NoOptionError) as e:
+        logging.error(f"Configuration error: {str(e)}")
+        return 1
+    except Exception as e:
+        logging.error(f"An error occurred: {str(e)}")
+        return 1
     finally:
-        if 'traffic_monitor' in locals(): # Sprawdź, czy obiekt istnieje
+        if 'background_task' in locals():
+            background_task.cancel()
+        if 'traffic_monitor' in locals():
             await traffic_monitor.stop_monitoring()
-        if 'db_handler' in locals(): # Sprawdz
+        if 'db_handler' in locals():
             await db_handler.close()
-        log_info("Cyber Witness zatrzymany.")
-
-
+        logging.info("Cyber Witness shutdown completed")
 
 if __name__ == "__main__":
     try:
         asyncio.run(main())
-    except Exception as e:
-        handle_exception(e)
-        sys.exit(1)
+    except KeyboardInterrupt:
+        logging.info("Program interrupted by user")
+        sys.exit(0)

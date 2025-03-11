@@ -8,9 +8,11 @@ openpyxl
 joblib
 threadpoolctl
 colorama
-playsound
+pydub  # Alternatywa dla playsound
+ffmpeg  # Potrzebne dla pydub
 speechrecognition
 gtts
 requests
 prometheus_client
-
+selenium
+python-dotenv
