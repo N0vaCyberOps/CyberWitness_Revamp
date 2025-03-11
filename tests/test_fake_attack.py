@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from attacks.fake_attack import simulate_brute_force_login
 
+
 class TestFakeThreat(unittest.TestCase):
 
     @patch("requests.post")

@@ -1,30 +1,14 @@
-import unittest
-import os
-from utils.logging import log_event
+import logging
+from utils.log_event import log_event
 
-class TestLogEvent(unittest.TestCase):
+def test_log_event_info(caplog):
+    """Test logowania na poziomie INFO."""
+    with caplog.at_level(logging.INFO):
+        log_event("INFO", "Testowy log INFO")
+    assert "Testowy log INFO" in caplog.text
 
-    def setUp(self):
-        """Tworzy tymczasowy plik logów."""
-        self.temp_log_path = "test_cyber_witness.log"
-
-    def tearDown(self):
-        """Usuwa plik logów po teście, jeśli istnieje."""
-        if os.path.exists(self.temp_log_path):
-            try:
-                os.remove(self.temp_log_path)
-            except PermissionError:
-                pass  # Jeśli plik jest otwarty, zostanie zamknięty w kolejnym teście.
-
-    def test_log_event_info(self):
-        """Test zapisu logów INFO."""
-        log_event("INFO", "Testowy log INFO", log_file=self.temp_log_path)
-
-        with open(self.temp_log_path, "r") as f:
-            content = f.read()
-
-        self.assertIn("INFO", content)
-        self.assertIn("Testowy log INFO", content)
-
-if __name__ == "__main__":
-    unittest.main()
+def test_log_event_error(caplog):
+    """Test logowania na poziomie ERROR."""
+    with caplog.at_level(logging.ERROR):
+        log_event("ERROR", "Testowy log ERROR")
+    assert "Testowy log ERROR" in caplog.text

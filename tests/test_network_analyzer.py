@@ -1,9 +1,10 @@
-from modules.network_analyzer import NetworkAnalyzer
-from scapy.all import IP, TCP, UDP, Ether
 import pytest
 import logging
+from scapy.all import Ether, IP, TCP
+from modules.network_analyzer import NetworkAnalyzer
 
-def test_network_analyzer_capture(monkeypatch, caplog):
+@pytest.mark.asyncio
+async def test_network_analyzer_capture(monkeypatch, caplog):
     caplog.set_level(logging.INFO)
     test_packet = Ether()/IP(src="1.1.1.1", dst="2.2.2.2")/TCP(sport=1234, dport=80)
 
@@ -12,6 +13,7 @@ def test_network_analyzer_capture(monkeypatch, caplog):
 
     monkeypatch.setattr("modules.network_analyzer.sniff", mock_sniff)
     analyzer = NetworkAnalyzer()
-    analyzer.capture_and_analyze(count=1)
+
+    await analyzer.capture_and_analyze(count=1)
 
     assert "TCP Packet: 1.1.1.1:1234 -> 2.2.2.2:80" in caplog.text

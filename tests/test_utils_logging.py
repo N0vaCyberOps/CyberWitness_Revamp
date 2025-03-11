@@ -1,6 +1,6 @@
 import unittest
 import os
-from utils.logging import log_debug, log_info, log_warning, log_error, log_critical
+from utils.log_event import log_event
 
 class TestLogging(unittest.TestCase):
 

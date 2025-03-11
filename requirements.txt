@@ -16,3 +16,7 @@ requests
 prometheus_client
 selenium
 python-dotenv
+scapy
+requests
+aiosqlite
+pytest

@@ -1,20 +1,15 @@
-import unittest
-import configparser
-import os
-from alerts.alert_coordinator import AlertCoordinator
+import pytest
+from unittest.mock import MagicMock
 from network.advanced_traffic_monitor import AdvancedTrafficMonitor
-from database.database_handler import DatabaseHandler
 
-class TestSniffer(unittest.IsolatedAsyncioTestCase):
+@pytest.fixture
+def mock_analyzer():
+    return MagicMock()
 
-    async def asyncSetUp(self):
-        """Konfiguracja przed każdym testem."""
-        self.config = configparser.ConfigParser()
-        self.config.read("test_config.ini")
+@pytest.fixture
+def mock_config():
+    return {"monitoring_interval": 5}
 
-        self.db_handler = DatabaseHandler(self.config["database"])
-        self.alert_coordinator = AlertCoordinator(self.db_handler)
-        self.advanced_monitor = AdvancedTrafficMonitor(alert_coordinator=self.alert_coordinator, config=self.config["network"])
-
-if __name__ == "__main__":
-    unittest.main()
+def test_advanced_traffic_monitor_init(mock_config, mock_analyzer):
+    monitor = AdvancedTrafficMonitor(mock_config, mock_analyzer)
+    assert monitor.config == mock_config
