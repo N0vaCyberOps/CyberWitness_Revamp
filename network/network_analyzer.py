@@ -1,32 +1,59 @@
-@pytest.mark.asyncio
-async def test_network_analyzer_non_ip_packet(monkeypatch, caplog):
-    """Tests handling of packets without an IP layer."""
-    caplog.set_level(logging.INFO)
-    test_packet = Ether()  # No IP
+import asyncio
+from scapy.all import sniff
+from typing import List, Dict, Any
+from utils.log_event import log_event
+from .packet_analyzer import analyze_packet
 
-    def mock_sniff(*args, **kwargs):
-        kwargs['prn'](test_packet)
+class NetworkAnalyzer:
+    def __init__(self, max_buffer_size: int = 1000):
+        self._captured_packets: List[Dict[str, Any]] = []
+        self._max_buffer = max_buffer_size
+        self._capture_active = False
 
-    monkeypatch.setattr("modules.network_analyzer.sniff", mock_sniff)
-    analyzer = NetworkAnalyzer()
+    async def capture_and_analyze(
+        self,
+        count: int = 100,
+        interface: str = None,
+        filter: str = None
+    ) -> List[Dict[str, Any]]:
+        """Przechwytuje i analizuje pakiety z kontrolą przepływu."""
+        self._captured_packets = []
+        self._capture_active = True
+        
+        try:
+            await asyncio.to_thread(
+                self._start_sync_capture,
+                count,
+                interface,
+                filter
+            )
+            return self._captured_packets
+        except Exception as e:
+            log_event("ERROR", f"Capture failed: {e}")
+            return []
+        finally:
+            self._capture_active = False
 
-    captured_packets = await analyzer.capture_and_analyze(count=1)
+    def _start_sync_capture(self, count: int, interface: str, filter: str):
+        """Synchroniczna funkcja przechwytywania dla asyncio.to_thread."""
+        sniff(
+            iface=interface,
+            filter=filter,
+            prn=self._process_packet,
+            count=count,
+            stop_filter=lambda _: not self._capture_active
+        )
 
-    assert "Non-IP packet" in caplog.text
-    assert captured_packets[0]["type"] == "Non-IP"
+    def _process_packet(self, packet):
+        """Przetwarza pojedynczy pakiet z kontrolą bufora."""
+        try:
+            analyzed = analyze_packet(packet)
+            if len(self._captured_packets) >= self._max_buffer:
+                self._captured_packets.pop(0)
+            self._captured_packets.append(analyzed)
+        except Exception as e:
+            log_event("ERROR", f"Packet processing error: {e}")
 
-@pytest.mark.asyncio
-async def test_network_analyzer_capture_error(monkeypatch, caplog):
-    """Simulates a failure in sniffing packets."""
-    caplog.set_level(logging.INFO)
-
-    def mock_sniff(*args, **kwargs):
-        raise Exception("Sniffing failed")
-
-    monkeypatch.setattr("modules.network_analyzer.sniff", mock_sniff)
-    analyzer = NetworkAnalyzer()
-
-    captured_packets = await analyzer.capture_and_analyze(count=1)
-
-    assert "Packet capture failed" in caplog.text
-    assert captured_packets == []
+    def stop_capture(self):
+        """Bezpieczne zatrzymanie przechwytywania."""
+        self._capture_active = False

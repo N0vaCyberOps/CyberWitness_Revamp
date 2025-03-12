@@ -1,44 +1,41 @@
 import asyncio
-from scapy.all import sniff
+from scapy.all import AsyncSniffer
+from typing import Optional
 from utils.log_event import log_event
 
 class AdvancedTrafficMonitor:
-    def __init__(self, config, analyzer):
+    def __init__(self, config: dict, analyzer: callable):
         self.config = config
         self.analyzer = analyzer
+        self.sniffer: Optional[AsyncSniffer] = None
         self._running = False
-        self._lock = asyncio.Lock()  # ✅ Added lock for thread safety
+        self._monitor_task: Optional[asyncio.Task] = None
 
-    async def start_monitoring(self, interface=None, filter=None):
-        """Starts network monitoring asynchronously."""
-        async with self._lock:
-            if self._running:
-                log_event("WARNING", "Monitoring is already running")
-                return
+    async def start_monitoring(self):
+        if self._running:
+            return
+            
+        self._running = True
+        self.sniffer = AsyncSniffer(
+            iface=self.config.get("interface"),
+            filter=self.config.get("filter"),
+            prn=self.analyzer,
+            store=False
+        )
+        self.sniffer.start()
+        
+        # Dodano zarządzanie taskiem
+        self._monitor_task = asyncio.create_task(self._monitor_status())
 
-            self._running = True
-            log_event("INFO", "Network monitoring started")
-
-            try:
-                await asyncio.to_thread(
-                    sniff,
-                    iface=interface or self.config.get("interface"),
-                    filter=filter or self.config.get("filter"),
-                    prn=self.analyzer.analyze_packet,
-                    store=False,
-                    stop_filter=lambda _: not self._running
-                )
-            except Exception as e:
-                log_event("ERROR", f"Monitoring error: {e}")
-            finally:
-                async with self._lock:
-                    self._running = False
-                    log_event("INFO", "Network monitoring stopped")
+    async def _monitor_status(self):
+        while self._running:
+            await asyncio.sleep(1)
+            if not self.sniffer.running:
+                self._running = False
 
     async def stop_monitoring(self):
-        """Stops network monitoring."""
-        async with self._lock:
-            if not self._running:
-                return
-            self._running = False
-            log_event("INFO", "Stopping network monitoring")
+        self._running = False
+        if self.sniffer:
+            self.sniffer.stop()
+        if self._monitor_task:
+            await self._monitor_task

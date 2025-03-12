@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock
-from attacks.fake_attack import simulate_brute_force_login
+from attacks.fake_attack import simulate_brute_force_login  # Now correct
 
 @patch("requests.post")
 def test_simulate_brute_force_login_failure(mock_post):
