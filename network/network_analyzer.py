@@ -1,55 +1,55 @@
-import asyncio
-from scapy.all import sniff
-from typing import List, Dict, Any, Optional
-from utils.log_event import log_event
-from .packet_analyzer import analyze_packet
+from scapy.all import IP, TCP, UDP, ICMP, Ether
+from typing import Dict, Any
+from functools import lru_cache
+import logging
 
-class NetworkAnalyzer:
-    def __init__(self, max_buffer_size: int = 1000):
-        self._captured_packets: List[Dict[str, Any]] = []
-        self._max_buffer = max_buffer_size
-        self._capture_active = False
+logger = logging.getLogger(__name__)
 
-    async def capture_and_analyze(
-        self,
-        count: int = 100,
-        interface: Optional[str] = None,
-        filter: Optional[str] = None
-    ) -> List[Dict[str, Any]]:
-        self._captured_packets = []
-        self._capture_active = True
-        
-        try:
-            await asyncio.to_thread(
-                self._start_sync_capture,
-                count,
-                interface,
-                filter
-            )
-            return self._captured_packets
-        except Exception as e:
-            log_event("ERROR", f"Capture failed: {e}")
-            return []
-        finally:
-            self._capture_active = False
+@lru_cache(maxsize=1024)
+def _parse_ip_header(packet) -> Dict[str, Any]:
+    """Optymalizacja: Cache'owanie nagłówków IP"""
+    return {
+        "src_ip": packet[IP].src,
+        "dst_ip": packet[IP].dst,
+        "protocol": packet[IP].proto
+    }
 
-    def _start_sync_capture(self, count: int, interface: Optional[str], filter: Optional[str]):
-        sniff(
-            iface=interface,
-            filter=filter,
-            prn=self._process_packet,
-            count=count,
-            stop_filter=lambda _: not self._capture_active
+def analyze_packet(packet) -> Dict[str, Any]:
+    result = {
+        "type": "Unknown",
+        "src_ip": None,
+        "dst_ip": None,
+        "src_port": None,
+        "dst_port": None
+    }
+
+    try:
+        # Szybsze wykrywanie warstw przez dispatch zamiast wielokrotnych if-ów
+        layer_checks = (
+            (Ether, lambda: result.update({"src_mac": packet[Ether].src, "dst_mac": packet[Ether].dst})),
+            (IP, lambda: result.update(_parse_ip_header(packet))),
+            (TCP, lambda: result.update({
+                "type": "TCP",
+                "src_port": packet[TCP].sport,
+                "dst_port": packet[TCP].dport
+            })),
+            (UDP, lambda: result.update({
+                "type": "UDP",
+                "src_port": packet[UDP].sport,
+                "dst_port": packet[UDP].dport
+            })),
+            (ICMP, lambda: result.update({"type": "ICMP"}))
         )
 
-    def _process_packet(self, packet):
-        try:
-            analyzed = analyze_packet(packet)
-            if len(self._captured_packets) >= self._max_buffer:
-                self._captured_packets.pop(0)
-            self._captured_packets.append(analyzed)
-        except Exception as e:
-            log_event("ERROR", f"Packet processing error: {e}")
+        for layer, updater in layer_checks:
+            if packet.haslayer(layer):
+                updater()
 
-    def stop_capture(self):
-        self._capture_active = False
+        if not packet.haslayer(IP):
+            result["type"] = "Non-IP"
+
+        return result
+
+    except Exception as e:
+        logger.error("Packet analysis failed", exc_info=True)
+        return {"type": "Error", "error": str(e)}

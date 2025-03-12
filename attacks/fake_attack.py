@@ -1,23 +1,25 @@
-import time
+import asyncio
 import random
-import requests
+from aiohttp import ClientSession
 from typing import List
-from utils.log_event import log_event
 
-def simulate_brute_force_login(url: str, username: str, password_list: List[str]) -> bool:
-    """Wersja zgodna z testami"""
-    try:
-        for password in password_list:
-            time.sleep(0.5 + random.uniform(-0.3, 0.3))
-            response = requests.post(
-                url,
-                data={"username": username, "password": password},
-                timeout=5
-            )
-            if "incorrect" not in response.text.lower():
-                log_event("WARNING", "Brute-force attack detected!")
-                raise RuntimeError("Brute-force attack detected!")  # Zmieniony wyjątek
-        return False
-    except requests.RequestException as e:
-        log_event("ERROR", f"Request failed: {e}")
-        return False
+async def simulate_brute_force(url: str, username: str, password_list: List[str]):
+    """Optymalizacja: Asynchroniczne żądania zamiast sekwencyjnych"""
+    async with ClientSession() as session:
+        tasks = [
+            _make_request(session, url, username, pwd)
+            for pwd in password_list
+        ]
+        return await asyncio.gather(*tasks)
+
+async def _make_request(session, url, username, password):
+    await asyncio.sleep(random.uniform(0.1, 0.5))  # Losowe opóźnienia
+    async with session.post(url, data={
+        "username": username,
+        "password": password
+    }) as response:
+        return {
+            "password": password,
+            "status": response.status,
+            "success": "success" in await response.text()
+        }

@@ -2,7 +2,7 @@ import asyncio
 from scapy.all import sniff
 from typing import List, Dict, Any, Optional
 from utils.log_event import log_event
-from .packet_analyzer import analyze_packet
+from network.packet_analyzer import analyze_packet
 
 class NetworkAnalyzer:
     def __init__(self, max_buffer_size: int = 1000):
