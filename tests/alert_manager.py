@@ -3,6 +3,7 @@ import unittest
 import asyncio
 import os
 import json
+import pytest
 from alerts.alert_manager import AlertManager
 
 class TestAlertManager(unittest.IsolatedAsyncioTestCase):

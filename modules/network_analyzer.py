@@ -1,28 +1,55 @@
-from scapy.all import sniff, IP, TCP, UDP, ICMP
+import asyncio
+from scapy.all import sniff
+from typing import List, Dict, Any, Optional
 from utils.log_event import log_event
+from .packet_analyzer import analyze_packet
 
 class NetworkAnalyzer:
-    def __init__(self):
-        """Inicjalizacja analizatora sieciowego."""
-        pass
+    def __init__(self, max_buffer_size: int = 1000):
+        self._captured_packets: List[Dict[str, Any]] = []
+        self._max_buffer = max_buffer_size
+        self._capture_active = False
 
-    async def capture_and_analyze(self, count=10):
-        """Przechwytuje i analizuje pakiety sieciowe."""
-        packets = sniff(prn=self.analyze_packet, count=count, store=False)
-        return packets  # ✅ Dodano return, aby uniknąć TypeError
+    async def capture_and_analyze(
+        self,
+        count: int = 100,
+        interface: Optional[str] = None,
+        filter: Optional[str] = None
+    ) -> List[Dict[str, Any]]:
+        self._captured_packets = []
+        self._capture_active = True
+        
+        try:
+            await asyncio.to_thread(
+                self._start_sync_capture,
+                count,
+                interface,
+                filter
+            )
+            return self._captured_packets
+        except Exception as e:
+            log_event("ERROR", f"Capture failed: {e}")
+            return []
+        finally:
+            self._capture_active = False
 
-    def analyze_packet(self, packet):
-        """Analizuje pakiet i loguje wynik."""
-        if packet.haslayer(IP):
-            src_ip = packet[IP].src
-            dst_ip = packet[IP].dst
-            if packet.haslayer(TCP):
-                sport, dport = packet[TCP].sport, packet[TCP].dport
-                log_event("NETWORK", f"TCP: {src_ip}:{sport} -> {dst_ip}:{dport}")
-            elif packet.haslayer(UDP):
-                sport, dport = packet[UDP].sport, packet[UDP].dport
-                log_event("NETWORK", f"UDP: {src_ip}:{sport} -> {dst_ip}:{dport}")
-            elif packet.haslayer(ICMP):
-                log_event("NETWORK", f"ICMP: {src_ip} -> {dst_ip}")
-            else:
-                log_event("NETWORK", f"Unknown packet from {src_ip} to {dst_ip}")
+    def _start_sync_capture(self, count: int, interface: Optional[str], filter: Optional[str]):
+        sniff(
+            iface=interface,
+            filter=filter,
+            prn=self._process_packet,
+            count=count,
+            stop_filter=lambda _: not self._capture_active
+        )
+
+    def _process_packet(self, packet):
+        try:
+            analyzed = analyze_packet(packet)
+            if len(self._captured_packets) >= self._max_buffer:
+                self._captured_packets.pop(0)
+            self._captured_packets.append(analyzed)
+        except Exception as e:
+            log_event("ERROR", f"Packet processing error: {e}")
+
+    def stop_capture(self):
+        self._capture_active = False

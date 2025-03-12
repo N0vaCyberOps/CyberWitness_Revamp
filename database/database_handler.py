@@ -6,6 +6,7 @@ from utils.log_event import log_event
 class DatabaseHandler:
     def __init__(self, config: Dict[str, Any]):
         self.database_file = config["database_file"]
+        self._pool = None
 
     async def _get_connection(self) -> aiosqlite.Connection:
         try:
@@ -61,9 +62,7 @@ class DatabaseHandler:
         finally:
             await conn.close()
 
-    # DODANA METODA
     async def get_recent_alerts(self, limit: int = 10) -> List[Dict]:
-        """Pobiera ostatnie alerty z bazy danych"""
         conn = await self._get_connection()
         try:
             cursor = await conn.execute(
