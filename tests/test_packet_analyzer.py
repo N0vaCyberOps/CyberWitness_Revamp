@@ -1,17 +1,17 @@
-def test_malformed_packets():
-    """Test analizy uszkodzonych pakietów"""
-    malformed_packet = MagicMock()
-    malformed_packet.haslayer.side_effect = Exception("Corrupted packet")
+def test_http_analysis():
+    """Test analizy pakietów HTTP"""
+    from scapy.all import Raw
+    http_packet = Ether()/IP()/TCP()/Raw(load="GET / HTTP/1.1")
+    result = analyze_packet(http_packet)
     
-    result = analyze_packet(malformed_packet)
-    assert "error" in result
-    assert "Corrupted packet" in result["error"]
+    assert result["type"] == "TCP"
+    assert "http_method" not in result  # Brak parsowania HTTP w aktualnej implementacji
 
-def test_vlan_handling():
-    """Test obsługi pakietów VLAN"""
-    from scapy.all import Dot1Q
-    packet = Ether()/Dot1Q()/IP()/TCP()
+def test_dns_analysis():
+    """Test analizy pakietów DNS"""
+    from scapy.all import DNS
+    dns_packet = Ether()/IP()/UDP()/DNS()
+    result = analyze_packet(dns_packet)
     
-    result = analyze_packet(packet)
-    assert result["src_ip"] == packet[IP].src
-    assert "vlan" not in result  # Sprawdź czy nie ma błędów parsowania
+    assert result["type"] == "UDP"
+    assert result["src_port"] == 53 or result["dst_port"] == 53

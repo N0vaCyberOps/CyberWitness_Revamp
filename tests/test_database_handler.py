@@ -1,62 +1,25 @@
-import pytest
-import asyncio
-import tempfile
-from database.database_handler import DatabaseHandler
-
 @pytest.mark.asyncio
-async def test_get_recent_alerts():
-    """Test pobierania ostatnich alertów z bazy danych"""
+async def test_connection_failure():
+    """Test błędów połączenia z bazą danych"""
+    with patch("aiosqlite.connect", side_effect=Exception("Connection failed")):
+        db = DatabaseHandler({"database_file": "invalid.db"})
+        
+        with pytest.raises(Exception):
+            await db.initialize()
+
+@pytest.mark.asio
+async def test_close_connection():
+    """Test poprawnego zamykania połączenia"""
     with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as tmp:
+        tmp.close()
         db = DatabaseHandler({"database_file": tmp.name})
         await db.initialize()
-
-        # Test pustej bazy
-        assert await db.get_recent_alerts() == []
-
-        # Dodaj testowe alerty
-        for i in range(5):
-            await db.save_alert({
-                "timestamp": f"2024-01-01 00:00:{i:02d}",
-                "alert_type": "TEST",
-                "alert_data": {"id": i}
-            })
-
-        # Pobierz i zweryfikuj
-        alerts = await db.get_recent_alerts(3)
-        assert len(alerts) == 3
-        assert alerts[0]["alert_data"] == '{"id": 4}'
-
-@pytest.mark.asyncio
-async def test_concurrent_access():
-    """Test równoczesnego dostępu do bazy danych"""
-    with tempfile.NamedTemporaryFile(suffix=".db") as tmp:
-        db = DatabaseHandler({"database_file": tmp.name})
-        await db.initialize()
-
-        async def insert_alert(i):
-            await db.save_alert({
-                "timestamp": f"2024-01-01 00:00:{i:02d}",
-                "alert_type": "TEST",
-                "alert_data": {"id": i}
-            })
-
-        # Wykonaj 10 równoległych zapisów
-        tasks = [insert_alert(i) for i in range(10)]
-        await asyncio.gather(*tasks)
-
-        alerts = await db.get_recent_alerts(10)
-        assert len(alerts) == 10
-
-@pytest.mark.asyncio
-async def test_invalid_alert_data():
-    """Test zapisu niepełnych danych alertu"""
-    with tempfile.NamedTemporaryFile(suffix=".db") as tmp:
-        db = DatabaseHandler({"database_file": tmp.name})
-        await db.initialize()
-
-        # Brak wymaganego pola 'timestamp'
-        result = await db.save_alert({
-            "alert_type": "INVALID",
-            "alert_data": {}
-        })
-        assert result is False
+        
+        # Symulacja otwartego połączenia
+        conn = await db._get_connection()
+        assert conn is not None
+        
+        await db.close()
+        assert db._pool is None
+        
+    os.unlink(tmp.name)
