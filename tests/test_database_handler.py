@@ -1,3 +1,31 @@
+import pytest
+import asyncio
+import tempfile
+from database.database_handler import DatabaseHandler
+
+@pytest.mark.asyncio
+async def test_get_recent_alerts():
+    """Test pobierania ostatnich alertów z bazy danych"""
+    with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as tmp:
+        db = DatabaseHandler({"database_file": tmp.name})
+        await db.initialize()
+
+        # Test pustej bazy
+        assert await db.get_recent_alerts() == []
+
+        # Dodaj testowe alerty
+        for i in range(5):
+            await db.save_alert({
+                "timestamp": f"2024-01-01 00:00:{i:02d}",
+                "alert_type": "TEST",
+                "alert_data": {"id": i}
+            })
+
+        # Pobierz i zweryfikuj
+        alerts = await db.get_recent_alerts(3)
+        assert len(alerts) == 3
+        assert alerts[0]["alert_data"] == '{"id": 4}'
+
 @pytest.mark.asyncio
 async def test_concurrent_access():
     """Test równoczesnego dostępu do bazy danych"""
