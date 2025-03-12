@@ -1,6 +1,6 @@
 import asyncio
 from scapy.all import sniff
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from utils.log_event import log_event
 from .packet_analyzer import analyze_packet
 
@@ -13,10 +13,9 @@ class NetworkAnalyzer:
     async def capture_and_analyze(
         self,
         count: int = 100,
-        interface: str = None,
-        filter: str = None
+        interface: Optional[str] = None,
+        filter: Optional[str] = None
     ) -> List[Dict[str, Any]]:
-        """Przechwytuje i analizuje pakiety z kontrolą przepływu."""
         self._captured_packets = []
         self._capture_active = True
         
@@ -34,8 +33,7 @@ class NetworkAnalyzer:
         finally:
             self._capture_active = False
 
-    def _start_sync_capture(self, count: int, interface: str, filter: str):
-        """Synchroniczna funkcja przechwytywania dla asyncio.to_thread."""
+    def _start_sync_capture(self, count: int, interface: Optional[str], filter: Optional[str]):
         sniff(
             iface=interface,
             filter=filter,
@@ -45,7 +43,6 @@ class NetworkAnalyzer:
         )
 
     def _process_packet(self, packet):
-        """Przetwarza pojedynczy pakiet z kontrolą bufora."""
         try:
             analyzed = analyze_packet(packet)
             if len(self._captured_packets) >= self._max_buffer:
@@ -55,5 +52,4 @@ class NetworkAnalyzer:
             log_event("ERROR", f"Packet processing error: {e}")
 
     def stop_capture(self):
-        """Bezpieczne zatrzymanie przechwytywania."""
         self._capture_active = False
