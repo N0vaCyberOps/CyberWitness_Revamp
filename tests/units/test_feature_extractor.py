@@ -1,7 +1,8 @@
 # Lokalizacja: CyberWitness_Revamp/tests/unit/test_feature_extractor.py
 import pytest
 from scapy.all import Ether, IP, UDP, DNS, DNSQR, TCP
-from scapy.layers.tls.all import TLS, TLSVersion
+from scapy.layers.tls.all import TLS
+from scapy.layers.tls.base import TLSVersion
 from scapy.layers.tls.handshake import TLSClientHello
 from network.threat_detector import FeatureExtractor
 
