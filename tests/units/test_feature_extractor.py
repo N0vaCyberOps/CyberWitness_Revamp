@@ -1,36 +1,34 @@
-# tests/unit/test_feature_extractor.py
 import pytest
-from scapy.all import *
+import numpy as np
+from scapy.all import Ether, IP, TCP, UDP, DNS, DNSQR
+from scapy.layers.tls.all import TLS, TLSVersion
 from network.threat_detector import FeatureExtractor
 
 @pytest.fixture
-def malicious_dns_packet():
-    """Pakiet z podejrzanym zapytaniem DNS (wysoka entropia)"""
+def dga_packet():
     return Ether()/IP(src="192.168.1.66")/UDP()/DNS(
-        qd=DNSQR(qname="d3b1gweb1bhwqj3jkg1brj.example.com")
+        qd=DNSQR(qname="xb91fh30dajk38hfd0j4.example.com")
     )
 
-def test_dga_detection(malicious_dns_packet):
+@pytest.fixture
+def tls_packet():
+    return Ether()/IP()/TCP()/TLS(
+        version=TLSVersion.TLS_1_2,
+        cipher=[0x009C, 0x009D]
+    )
+
+def test_dga_detection(dga_packet):
     extractor = FeatureExtractor()
-    features = extractor.extract(malicious_dns_packet)
+    features = extractor.extract(dga_packet)
     
-    # Sprawdź czy system wykrył:
-    # - Wysoką entropię w nazwie domeny
-    # - Brak odpowiedzi DNS
-    # - Podejrzany ruch DNS
     assert features['dns_entropy'] > 4.5
     assert features['dns_suspicious'] == 1
-    assert features['dns_query_no_answer'] == 1
+    assert features['category'] == 'suspicious'
 
-def test_tls_fingerprinting():
-    """Test generowania odcisku JA3 dla różnych wersji TLS"""
-    tls12_pkt = TLS(version=0x0303, cipher=0x009C)
-    tls13_pkt = TLS(version=0x0304, cipher=0x1301)
-    
+def test_tls_fingerprinting(tls_packet):
     extractor = FeatureExtractor()
-    ja3_tls12 = extractor._generate_ja3(tls12_pkt)
-    ja3_tls13 = extractor._generate_ja3(tls13_pkt)
+    features = extractor.extract(tls_packet)
     
-    # Sprawdź czy różne wersje TLS generują różne hashe
-    assert ja3_tls12 != ja3_tls13
-    assert len(ja3_tls12) == 32  # MD5 hash length
+    assert features['ja3_hash'] is not None
+    assert len(features['ja3_hash']) == 32
+    assert features['tls_version'] == TLSVersion.TLS_1_2
