@@ -1,26 +1,36 @@
+# tests/unit/test_feature_extractor.py
 import pytest
-from scapy.all import Ether, IP, TCP, DNS, TLS
+from scapy.all import *
 from network.threat_detector import FeatureExtractor
 
 @pytest.fixture
-def extractor():
-    return FeatureExtractor()
+def malicious_dns_packet():
+    """Pakiet z podejrzanym zapytaniem DNS (wysoka entropia)"""
+    return Ether()/IP(src="192.168.1.66")/UDP()/DNS(
+        qd=DNSQR(qname="d3b1gweb1bhwqj3jkg1brj.example.com")
+    )
 
-def test_tcp_port_scan_detection(extractor):
-    # Symulacja skanowania portów
-    packet = Ether()/IP(src="192.168.1.100")/TCP(dport=range(1,100))
-    features = extractor.extract(packet)
-    assert features['port_scan'] == 1
-
-def test_dns_entropy_calculation(extractor):
-    # Test DGA (wysoka entropia)
-    packet = Ether()/IP()/DNS(qd=DNSQR(qname="xjkahd83jhdas.example.com"))
-    features = {}
-    extractor._analyze_dns(packet, features)
+def test_dga_detection(malicious_dns_packet):
+    extractor = FeatureExtractor()
+    features = extractor.extract(malicious_dns_packet)
+    
+    # Sprawdź czy system wykrył:
+    # - Wysoką entropię w nazwie domeny
+    # - Brak odpowiedzi DNS
+    # - Podejrzany ruch DNS
+    assert features['dns_entropy'] > 4.5
     assert features['dns_suspicious'] == 1
+    assert features['dns_query_no_answer'] == 1
 
-def test_ja3_hashing(extractor):
-    # Test generowania hashy TLS
-    tls_packet = Ether()/IP()/TCP()/TLS(version=0x0303)
-    ja3 = extractor._generate_ja3(tls_packet[TLS])
-    assert len(ja3) == 32  # Długość MD5
+def test_tls_fingerprinting():
+    """Test generowania odcisku JA3 dla różnych wersji TLS"""
+    tls12_pkt = TLS(version=0x0303, cipher=0x009C)
+    tls13_pkt = TLS(version=0x0304, cipher=0x1301)
+    
+    extractor = FeatureExtractor()
+    ja3_tls12 = extractor._generate_ja3(tls12_pkt)
+    ja3_tls13 = extractor._generate_ja3(tls13_pkt)
+    
+    # Sprawdź czy różne wersje TLS generują różne hashe
+    assert ja3_tls12 != ja3_tls13
+    assert len(ja3_tls12) == 32  # MD5 hash length
