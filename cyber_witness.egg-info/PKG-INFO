@@ -1,3 +1,4 @@
 Metadata-Version: 2.1
 Name: cyber-witness
-Version: 0.1
+Version: 0.2
+Requires-Python: >=3.8
