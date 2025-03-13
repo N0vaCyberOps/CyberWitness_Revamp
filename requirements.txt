@@ -1,22 +1,6 @@
-fastapi
-uvicorn
-numpy
-scipy
-pydantic
-scapy
-openpyxl
-joblib
-threadpoolctl
-colorama
-pydub  # Alternatywa dla playsound
-ffmpeg  # Potrzebne dla pydub
-speechrecognition
-gtts
-requests
-prometheus_client
-selenium
-python-dotenv
-scapy
-requests
-aiosqlite
-pytest
+# Lokalizacja: CyberWitness_Revamp/requirements.txt
+scapy>=2.6.0
+pytest>=7.0.0
+numpy>=1.21.0
+cryptography>=41.0.0
+pyopenssl>=23.2.0

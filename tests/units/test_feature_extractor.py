@@ -1,7 +1,8 @@
+# Lokalizacja: CyberWitness_Revamp/tests/unit/test_feature_extractor.py
 import pytest
-import numpy as np
-from scapy.all import Ether, IP, TCP, UDP, DNS, DNSQR
+from scapy.all import Ether, IP, UDP, DNS, DNSQR, TCP
 from scapy.layers.tls.all import TLS, TLSVersion
+from scapy.layers.tls.handshake import TLSClientHello
 from network.threat_detector import FeatureExtractor
 
 @pytest.fixture
@@ -12,9 +13,9 @@ def dga_packet():
 
 @pytest.fixture
 def tls_packet():
-    return Ether()/IP()/TCP()/TLS(
+    return Ether()/IP(dst="1.1.1.1")/TCP(sport=54321, dport=443)/TLS()/TLSClientHello(
         version=TLSVersion.TLS_1_2,
-        cipher=[0x009C, 0x009D]
+        ciphers=[0x009C, 0x009D]
     )
 
 def test_dga_detection(dga_packet):

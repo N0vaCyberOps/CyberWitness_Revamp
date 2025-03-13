@@ -1,8 +1,13 @@
+# Lokalizacja: CyberWitness_Revamp/network/threat_detector.py
 import numpy as np
-from scapy.all import TLS, TCP, UDP, DNS, IP
-from scapy.layers.tls.all import TLSVersion
+from scapy.all import Ether, IP, TCP, UDP, DNS
+from scapy.config import conf
+from scapy.layers.tls.all import TLS, TLSClientHello, TLSVersion
 from collections import defaultdict, deque
 import hashlib
+
+# Wymuś ładowanie modułu TLS
+conf.contribs['tls'] = {'load_module': True}
 
 class FeatureExtractor:
     def __init__(self):
@@ -45,16 +50,18 @@ class FeatureExtractor:
 
     def _calculate_entropy(self, string):
         prob = [float(string.count(c)) / len(string) for c in set(string)]
-        return -sum(p * np.log(p) for p in prob)
+        return -sum(p * np.log(p) for p in prob) if prob else 0.0
 
     def _analyze_tls(self, packet, features):
         if packet.haslayer(TLS):
-            ja3_hash = self._generate_ja3(packet[TLS])
-            if ja3_hash:
+            try:
+                ja3_hash = self._generate_ja3(packet[TLS])
                 features.update({
                     'ja3_hash': ja3_hash,
                     'tls_version': packet[TLS].version
                 })
+            except AttributeError:
+                pass
 
     def _generate_ja3(self, tls_pkt):
         try:
