@@ -1,0 +1,7 @@
+malicious_user_agents:
+  - sqlmap
+  - nmap
+  - hydra
+  - metasploit
+  - slowloris
+  - nikto

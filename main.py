@@ -1,124 +1,95 @@
-import configparser
-import logging
-import json
 import asyncio
-import aiosqlite
-from tenacity import retry, stop_after_attempt, wait_exponential
-from traffic_monitor import AdvancedTrafficMonitor
+import signal
+import logging
+import psutil
+from network.advanced_traffic_monitor import TrafficMonitor
+from database.database_handler import DatabaseHandler
+from alerts.alert_coordinator import AlertCoordinator
 
-def setupLogging():
-    """Set up logging with default configuration."""
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        filename='cyber_witness.log'
-    )
+logger = logging.getLogger(__name__)
 
-class DatabaseHandler:
-    """Asynchronous handler for SQLite database operations."""
+class CyberWitness:
+    def __init__(self):
+        self.db = DatabaseHandler()
+        self.alert_coordinator = AlertCoordinator(self.db)
+        self.monitor = TrafficMonitor(self.db, self.alert_coordinator)
+        self.queue = asyncio.Queue(maxsize=1000)
+        self.running = False
+        self.sniffer_alive = asyncio.Event()
 
-    def __init__(self, db_path: str):
-        self.db_path = db_path
-        self.db = None
-
-    async def connect(self) -> None:
-        """Establish database connection."""
-        self.db = await aiosqlite.connect(self.db_path)
-
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
-    async def execute_query(self, query: str, params: tuple = None) -> None:
-        """Execute a database query with retry mechanism."""
-        async with self.db as db:
-            if params:
-                await db.execute(query, params)
-            else:
-                await db.execute(query)
-            await db.commit()
-
-    async def fetch_all(self, query: str, params: tuple = None) -> list:
-        """Fetch all results from a query."""
-        async with self.db as db:
-            cursor = await db.execute(query, params)
-            return await cursor.fetchall()
-
-    async def close(self) -> None:
-        """Close database connection."""
-        if self.db:
-            await self.db.close()
-
-class AlertCoordinator:
-    """Coordinator for managing alerts with priority queues."""
-
-    def __init__(self, db_handler: DatabaseHandler):
-        self.db_handler = db_handler
-        self.high_priority_queue = asyncio.Queue()
-        self.low_priority_queue = asyncio.Queue()
-
-    async def add_alert(self, alert_data: dict, priority: str = 'low') -> None:
-        """Add alert to appropriate queue based on priority."""
-        alert_data['priority'] = priority
-        if priority == 'high':
-            await self.high_priority_queue.put(alert_data)
-            await self.process_alert(alert_data)
-        else:
-            await self.low_priority_queue.put(alert_data)
-
-    async def process_alert(self, alert_data: dict) -> None:
-        """Process and log alert to database."""
-        query = "INSERT INTO alerts (data, priority) VALUES (?, ?)"
-        await self.db_handler.execute_query(query, (json.dumps(alert_data), alert_data['priority']))
-
-    async def background_processing(self) -> None:
-        """Background task for processing low priority alerts."""
-        while True:
+    async def packet_processing(self):
+        self.running = True
+        self.sniffer_alive.set()
+        while self.running:
             try:
-                alert_data = await self.low_priority_queue.get()
-                await self.process_alert(alert_data)
-                self.low_priority_queue.task_done()
+                packet = await asyncio.wait_for(self.queue.get(), timeout=1.0)
+                await asyncio.to_thread(self.monitor.analyze_packet, packet)
+            except asyncio.TimeoutError:
+                continue
             except Exception as e:
-                logging.error(f"Error processing low priority alert: {str(e)}")
-            await asyncio.sleep(1)
+                logger.error(f"Packet processing error: {e}")
+                await self.restart_sniffer()
 
-async def main():
-    """Main asynchronous function to run the application."""
-    config = configparser.ConfigParser()
-    config.read('config.ini')
+    async def watchdog(self):
+        while self.running:
+            await asyncio.sleep(30)
+            if not self.sniffer_alive.is_set():
+                logger.warning("Sniffer inactive - restarting...")
+                await self.restart_sniffer()
 
-    try:
-        setupLogging()
-        logging.info("Starting Cyber Witness: Network Sniffer")
+    async def restart_sniffer(self):
+        backoff = 2
+        for attempt in range(5):
+            try:
+                await self.monitor.restart()
+                self.sniffer_alive.set()
+                logger.info(f"Sniffer restarted (attempt {attempt + 1})")
+                return
+            except Exception as e:
+                logger.error(f"Restart failed: {e}")
+                await asyncio.sleep(backoff)
+                backoff *= 2
+        logger.critical("Critical sniffer failure!")
+        await self.alert_coordinator.trigger_alert(
+            "Critical Sniffer Failure",
+            "Sniffer failed to restart after multiple attempts.",
+            "CRITICAL"
+        )
+        await self.graceful_shutdown()
 
-        db_path = config.get('database', 'database_file')
-        db_handler = DatabaseHandler(db_path)
-        await db_handler.connect()
+    async def monitor_resources(self):
+        while self.running:
+            cpu_usage = psutil.cpu_percent(interval=1)
+            memory_usage = psutil.virtual_memory().percent
+            logger.info(f"CPU Usage: {cpu_usage}%, Memory Usage: {memory_usage}%")
+            if cpu_usage > 90 or memory_usage > 90:
+                await self.alert_coordinator.trigger_alert(
+                    "High Resource Usage",
+                    f"CPU: {cpu_usage}%, Memory: {memory_usage}%",
+                    "HIGH"
+                )
+            await asyncio.sleep(60)
 
-        alert_coordinator = AlertCoordinator(db_handler)
-        background_task = asyncio.create_task(alert_coordinator.background_processing())
+    async def graceful_shutdown(self, sig=None):
+        self.running = False
+        self.sniffer_alive.clear()
+        await self.monitor.stop()
+        await self.db.close()
+        logger.info(f"Shutdown complete ({sig.name if sig else 'manual'})")
 
-        interface = config.get('network', 'interface', fallback='')
-        traffic_monitor = AdvancedTrafficMonitor(interface, alert_coordinator)
-        await traffic_monitor.start_monitoring()
+async def async_main():
+    cw = CyberWitness()
+    loop = asyncio.get_event_loop()
+    for sig in (signal.SIGINT, signal.SIGTERM):
+        loop.add_signal_handler(sig, lambda: asyncio.create_task(cw.graceful_shutdown(sig)))
 
-        while True:
-            await asyncio.sleep(1)
-    except (configparser.NoSectionError, configparser.NoOptionError) as e:
-        logging.error(f"Configuration error: {str(e)}")
-        return 1
-    except Exception as e:
-        logging.error(f"An error occurred: {str(e)}")
-        return 1
-    finally:
-        if 'background_task' in locals():
-            background_task.cancel()
-        if 'traffic_monitor' in locals():
-            await traffic_monitor.stop_monitoring()
-        if 'db_handler' in locals():
-            await db_handler.close()
-        logging.info("Cyber Witness shutdown completed")
+    asyncio.create_task(cw.watchdog())
+    asyncio.create_task(cw.monitor_resources())
+    await cw.packet_processing()
+
+def main():
+    logging.basicConfig(level=logging.INFO)
+    asyncio.run(async_main())
 
 if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except KeyboardInterrupt:
-        logging.info("Program interrupted by user")
-        sys.exit(0)
+    main()
