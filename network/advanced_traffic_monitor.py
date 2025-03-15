@@ -3,21 +3,27 @@ import asyncio
 import logging
 import datetime
 import aiofiles
+from threading import Lock
 
 class AdvancedTrafficMonitor:
-    def __init__(self, interface, log_file="cyberwitness_report.txt"):
+    def __init__(self, interface):
         self.interface = interface
-        self.log_file = log_file
-        self.logger = logging.getLogger(__name__)
+        self.logger = logging.getLogger("CyberWitness")
         self.captured_packets = []  # Bufor na przechwycone pakiety
+        self.lock = Lock()  # Synchronizacja dostępu do listy pakietów
+        self.is_sniffing = False  # Flaga kontrolna do zatrzymywania sniffingu
 
     def packet_callback(self, packet):
-        """Funkcja wywoływana dla każdego przechwyconego pakietu."""
+        """Obsługuje przechwycone pakiety."""
+        if not self.is_sniffing:
+            return
+
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_entry = f"{timestamp} - {packet.summary()}\n"
-        
+
+        with self.lock:
+            self.captured_packets.append(log_entry)
         self.logger.info(f"Przechwycono pakiet: {log_entry.strip()}")
-        self.captured_packets.append(log_entry)
 
     async def save_report(self):
         """Zapisuje przechwycone pakiety do pliku logu."""
@@ -25,23 +31,36 @@ class AdvancedTrafficMonitor:
             self.logger.warning("Brak przechwyconych pakietów do zapisania.")
             return
 
-        filename = f"cyberwitness_report_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt"
-        
-        async with aiofiles.open(filename, "w") as f:
-            await f.writelines(self.captured_packets)
+        filename = f"logs/cyberwitness_report_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt"
 
-        self.logger.info(f"Zapisano raport: {filename}")
+        try:
+            async with aiofiles.open(filename, "w") as f:
+                async with self.lock:
+                    await f.writelines(self.captured_packets)
+                    self.captured_packets.clear()
+            self.logger.info(f"Zapisano raport: {filename}")
+        except Exception as e:
+            self.logger.error(f"Błąd zapisu pliku: {str(e)}")
 
     async def start_sniffing(self):
-        """Rozpoczyna nasłuchiwanie na wybranym interfejsie."""
-        self.logger.info(f"Sniffing started on {self.interface}")
+        """Uruchamia sniffing na wybranym interfejsie."""
+        self.is_sniffing = True
+        self.logger.info(f"Rozpoczynanie sniffowania na {self.interface}")
+
         try:
-            scapy.sniff(iface=self.interface, prn=self.packet_callback, store=False)
+            await asyncio.to_thread(
+                scapy.sniff,
+                iface=self.interface,
+                prn=self.packet_callback,
+                store=False
+            )
         except Exception as e:
-            self.logger.error(f"Błąd sniffingu: {e}")
+            self.logger.error(f"Błąd sniffingu: {str(e)}")
+            self.is_sniffing = False
 
     async def stop_sniffing(self):
-        """Kończy nasłuchiwanie i zapisuje raport."""
-        self.logger.info("Stopping sniffing...")
+        """Zatrzymuje sniffing i zapisuje raport."""
+        self.is_sniffing = False
+        self.logger.info("Zatrzymywanie sniffingu...")
         await self.save_report()
-        self.logger.info("Sniffing stopped.")
+        self.logger.info("Sniffowanie zatrzymane.")
