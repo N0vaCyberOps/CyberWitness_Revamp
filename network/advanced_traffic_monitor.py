@@ -1,18 +1,18 @@
 import scapy.all as scapy
 import logging
 import asyncio
+from network.packet_analyzer import PacketAnalyzer  # Dodano import
 
 logger = logging.getLogger(__name__)
 
 class TrafficMonitor:
-    def __init__(self, db, alert_coordinator, interface='eth0', fallback_interface='wlan0', emergency_interface='usb0'):
+    def __init__(self, db, alert_coordinator, interface='eth0', fallback_interface='wlan0'):
         self.db = db
         self.alert_coordinator = alert_coordinator
         self.interface = interface
         self.fallback_interface = fallback_interface
-        self.emergency_interface = emergency_interface
         self.sniffer = None
-        self.packet_analyzer = PacketAnalyzer(db, alert_coordinator)
+        self.packet_analyzer = PacketAnalyzer(db, alert_coordinator)  # Poprawiono inicjalizację
         self.interface_check_task = None
 
     async def check_interface(self):
@@ -25,17 +25,8 @@ class TrafficMonitor:
             stdout, _ = await proc.communicate()
             if b"DOWN" in stdout:
                 logger.warning(f"Interface {self.interface} down!")
-                if self.fallback_interface:
-                    self.interface = self.fallback_interface
-                    self.fallback_interface = self.emergency_interface
-                else:
-                    logger.critical("All interfaces down!")
-                    await self.alert_coordinator.trigger_alert(
-                        "All Interfaces Down",
-                        "No available network interfaces.",
-                        "CRITICAL"
-                    )
-                    await self.restart()
+                self.interface = self.fallback_interface
+                await self.restart()
 
     async def start(self):
         try:

@@ -1,74 +1,61 @@
-import sqlcipher3 as sqlite
+import aiosqlite
 import os
 import threading
 from datetime import datetime, timedelta
 import logging
-import asyncio
+from typing import List, Dict
 
 logger = logging.getLogger(__name__)
 
 class DatabaseHandler:
     def __init__(self, path="cyber_witness.db"):
-        self.conn = sqlite.connect(path, check_same_thread=False)
-        self.conn.execute(f"PRAGMA key='{os.getenv('DB_KEY')}'")
+        self.db_path = path
         self.lock = threading.Lock()
-        self.alert_queue = asyncio.Queue(maxsize=1000)
-        self._init_db()
-        self._schedule_cleanup()
-        asyncio.create_task(self._process_alert_queue())
+        asyncio.create_task(self._init_db())  # Inicjalizacja asynchroniczna
+        asyncio.create_task(self._schedule_cleanup())  # Cleanup jako zadanie asynchroniczne
 
-    def _init_db(self):
-        with self.lock:
-            self.conn.execute('''CREATE TABLE IF NOT EXISTS alerts (
-                id INTEGER PRIMARY KEY,
+    async def _init_db(self):
+        async with aiosqlite.connect(self.db_path) as db:
+            await db.execute('''CREATE TABLE IF NOT EXISTS alerts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 timestamp DATETIME,
                 severity TEXT,
                 source_ip TEXT,
-                description TEXT)''')
-            self.conn.execute('''CREATE INDEX IF NOT EXISTS idx_timestamp ON alerts (timestamp)''')
-            self.conn.commit()
+                description TEXT
+            )''')
+            await db.commit()
 
-    async def _process_alert_queue(self):
-        batch = []
+    async def _schedule_cleanup(self):
         while True:
-            try:
-                alert = await asyncio.wait_for(self.alert_queue.get(), timeout=5.0)
-                batch.append(alert)
-                if len(batch) >= 100:
-                    await self.log_alert_batch(batch)
-                    batch = []
-            except asyncio.TimeoutError:
-                if batch:
-                    await self.log_alert_batch(batch)
-                    batch = []
+            cutoff = datetime.now() - timedelta(days=30)
+            async with aiosqlite.connect(self.db_path) as db:
+                await db.execute('DELETE FROM alerts WHERE timestamp < ?', (cutoff,))
+                await db.commit()
+            await asyncio.sleep(86400)  # Czekaj 24 godziny
 
-    async def log_alert(self, severity, source_ip, description):
-        await self.alert_queue.put({
-            'severity': severity,
-            'source_ip': source_ip,
-            'description': description
-        })
-
-    async def log_alert_batch(self, alerts):
-        with self.lock:
+    async def log_alert(self, severity: str, source_ip: str, description: str) -> None:
+        async with aiosqlite.connect(self.db_path) as db:
             try:
-                self.conn.executemany('''INSERT INTO alerts 
+                await db.execute('''INSERT INTO alerts 
+                    (timestamp, severity, source_ip, description)
+                    VALUES (?, ?, ?, ?)''',
+                    (datetime.now(), severity, source_ip, description))
+                await db.commit()
+            except Exception as e:
+                logger.error(f"Error logging alert: {str(e)}")
+                raise
+
+    async def log_alert_batch(self, alerts: List[Dict]) -> None:
+        async with aiosqlite.connect(self.db_path) as db:
+            try:
+                await db.executemany('''INSERT INTO alerts 
                     (timestamp, severity, source_ip, description)
                     VALUES (?, ?, ?, ?)''',
                     [(datetime.now(), a['severity'], a['source_ip'], a['description']) for a in alerts])
-                self.conn.commit()
+                await db.commit()
             except Exception as e:
-                logger.error(f"Batch insert failed: {e}")
+                logger.error(f"Batch insert failed: {str(e)}")
                 raise
 
-    def _schedule_cleanup(self):
-        def cleanup():
-            cutoff = datetime.now() - timedelta(days=30)
-            with self.lock:
-                self.conn.execute('DELETE FROM alerts WHERE timestamp < ?', (cutoff,))
-                self.conn.commit()
-            threading.Timer(86400, cleanup).start()
-        cleanup()
-
     async def close(self):
-        self.conn.close()
+        pass  # aiosqlite zamyka połączenia automatycznie
