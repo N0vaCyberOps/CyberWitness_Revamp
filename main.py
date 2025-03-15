@@ -1,6 +1,7 @@
 import asyncio
 import signal
 import logging
+import sys
 import scapy.all as scapy
 from network.advanced_traffic_monitor import AdvancedTrafficMonitor
 from database.database_handler import DatabaseHandler
@@ -74,8 +75,10 @@ async def async_main():
     loop = asyncio.get_event_loop()
 
     # Obsługa zamknięcia programu (Windows/Linux)
-    if hasattr(signal, "SIGTERM"):
-        loop.add_signal_handler(signal.SIGTERM, lambda: asyncio.create_task(cw.graceful_shutdown(signal.SIGTERM)))
+    # Dodajemy tylko obsługę SIGINT na Windows, na innych systemach także SIGTERM
+    if sys.platform != 'win32':
+        if hasattr(signal, "SIGTERM"):
+            loop.add_signal_handler(signal.SIGTERM, lambda: asyncio.create_task(cw.graceful_shutdown(signal.SIGTERM)))
     if hasattr(signal, "SIGINT"):
         loop.add_signal_handler(signal.SIGINT, lambda: asyncio.create_task(cw.graceful_shutdown(signal.SIGINT)))
 
