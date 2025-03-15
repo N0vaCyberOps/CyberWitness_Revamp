@@ -1,71 +1,47 @@
 import scapy.all as scapy
-import logging
 import asyncio
+import logging
 import datetime
-import aiofiles  # Dodana biblioteka do asynchronicznego zapisu plików
-
-logger = logging.getLogger(__name__)
+import aiofiles
 
 class AdvancedTrafficMonitor:
-    def __init__(self, db, alert_coordinator, interface):
-        self.db = db
-        self.alert_coordinator = alert_coordinator
+    def __init__(self, interface, log_file="cyberwitness_report.txt"):
         self.interface = interface
-        self.sniffer = None
-        self.running = False
-        self.log_file = None
-        self.log_filename = ""
+        self.log_file = log_file
+        self.logger = logging.getLogger(__name__)
+        self.captured_packets = []  # Bufor na przechwycone pakiety
 
-    async def start(self):
-        """Uruchomienie sniffera na wybranym interfejsie."""
+    def packet_callback(self, packet):
+        """Funkcja wywoływana dla każdego przechwyconego pakietu."""
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_entry = f"{timestamp} - {packet.summary()}\n"
+        
+        self.logger.info(f"Przechwycono pakiet: {log_entry.strip()}")
+        self.captured_packets.append(log_entry)
+
+    async def save_report(self):
+        """Zapisuje przechwycone pakiety do pliku logu."""
+        if not self.captured_packets:
+            self.logger.warning("Brak przechwyconych pakietów do zapisania.")
+            return
+
+        filename = f"cyberwitness_report_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt"
+        
+        async with aiofiles.open(filename, "w") as f:
+            await f.writelines(self.captured_packets)
+
+        self.logger.info(f"Zapisano raport: {filename}")
+
+    async def start_sniffing(self):
+        """Rozpoczyna nasłuchiwanie na wybranym interfejsie."""
+        self.logger.info(f"Sniffing started on {self.interface}")
         try:
-            logger.info(f"Sniffing started on {self.interface}")
-
-            # Utwórz nazwę pliku i otwórz go asynchronicznie
-            now = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            self.log_filename = f"packet_log_{now}.txt"
-            self.log_file = await aiofiles.open(self.log_filename, mode="a")
-
-            # Uruchom sniffera
-            self.running = True
-            self.sniffer = scapy.AsyncSniffer(
-                iface=self.interface,
-                prn=self.packet_callback,  # Zmieniono na metodę klasy
-                store=False
-            )
-            self.sniffer.start()
-
-            # Czekaj na zatrzymanie
-            while self.running:
-                await asyncio.sleep(0.1)
-
+            scapy.sniff(iface=self.interface, prn=self.packet_callback, store=False)
         except Exception as e:
-            logger.error(f"Błąd sniffera: {str(e)}")
-        finally:
-            if self.log_file:
-                await self.log_file.close()
+            self.logger.error(f"Błąd sniffingu: {e}")
 
-    async def packet_callback(self, packet):
-        """Asynchroniczna obsługa pakietów."""
-        try:
-            log_entry = packet.summary()
-            logger.info(log_entry)
-
-            # Zapisz do pliku (asynchronicznie)
-            await self.log_file.write(log_entry + "\n")
-
-            # Tutaj możesz dodać logikę bazy danych i alertów
-            # await self.db.insert_packet(log_entry)
-            # await self.alert_coordinator.check_for_alerts(packet)
-
-        except Exception as e:
-            logger.error(f"Błąd przetwarzania pakietu: {str(e)}")
-
-    async def stop(self):
-        """Zatrzymanie sniffera."""
-        if self.sniffer:
-            self.running = False
-            self.sniffer.stop()
-            logger.info("Sniffer zatrzymany.")
-            if self.log_file:
-                await self.log_file.close()
+    async def stop_sniffing(self):
+        """Kończy nasłuchiwanie i zapisuje raport."""
+        self.logger.info("Stopping sniffing...")
+        await self.save_report()
+        self.logger.info("Sniffing stopped.")

@@ -1,0 +1,5 @@
+==== Raport CyberWitness ====
+Data: 2025-03-15 15:18:20
+Interfejs: \Device\NPF_{54070A3F-2690-4893-8584-D433CDE03F80}
+
+--- Wykryte pakiety ---
