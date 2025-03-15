@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import signal
-from network.advanced_traffic_monitor import TrafficMonitor
+from network.advanced_traffic_monitor import AdvancedTrafficMonitor
 from database.database_handler import DatabaseHandler
 from alerts.alert_coordinator import AlertCoordinator
 

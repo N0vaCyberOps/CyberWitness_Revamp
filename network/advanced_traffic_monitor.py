@@ -5,8 +5,8 @@ from network.packet_analyzer import PacketAnalyzer
 
 logger = logging.getLogger(__name__)
 
-class TrafficMonitor:
-    def __init__(self, db, alert_coordinator, interface='Ethernet', fallback_interface='Wi-Fi'):
+class AdvancedTrafficMonitor:
+    def __init__(self, db, alert_coordinator, interface='eth0', fallback_interface='wlan0'):
         self.db = db
         self.alert_coordinator = alert_coordinator
         self.interface = interface
@@ -19,11 +19,11 @@ class TrafficMonitor:
         while True:
             await asyncio.sleep(10)
             proc = await asyncio.create_subprocess_exec(
-                'ipconfig',
+                'ip', 'link', 'show', self.interface,
                 stdout=asyncio.subprocess.PIPE
             )
             stdout, _ = await proc.communicate()
-            if self.interface.encode() not in stdout:
+            if b"DOWN" in stdout:
                 logger.warning(f"Interface {self.interface} down!")
                 self.interface = self.fallback_interface
                 await self.restart()
@@ -45,19 +45,6 @@ class TrafficMonitor:
     def packet_callback(self, packet):
         self.packet_analyzer.process_packet(packet)
 
-    async def check_interface(self):
-        while True:
-            await asyncio.sleep(10)
-            proc = await asyncio.create_subprocess_exec(
-                'ipconfig',
-                stdout=asyncio.subprocess.PIPE
-            )
-            stdout, _ = await proc.communicate()
-            if self.interface.encode() not in stdout:
-                logger.warning(f"Interface {self.interface} down!")
-                self.interface = self.fallback_interface
-                await self.restart()
-
     async def stop(self):
         if self.sniffer:
             self.sniffer.stop()
@@ -68,10 +55,4 @@ class TrafficMonitor:
     async def restart(self):
         await self.stop()
         await self.start()
-
-    async def stop(self):
-        if self.sniffer:
-            self.sniffer.stop()
-            if self.interface_check_task:
-                self.interface_check_task.cancel()
-            logger.info("Sniffer stopped")
+```
