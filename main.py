@@ -1,54 +1,28 @@
-import asyncio
-import signal
 import logging
-from network.advanced_traffic_monitor import AdvancedTrafficMonitor
+import os
+from datetime import datetime
 
-# Konfiguracja logowania
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-logger = logging.getLogger(__name__)
+# Tworzenie katalogu na raporty, jeśli nie istnieje
+log_dir = "logs"
+if not os.path.exists(log_dir):
+    os.makedirs(log_dir)
 
-class CyberWitness:
-    def __init__(self, interface="Intel(R) Wi-Fi 6E AX211 160MHz"):
-        self.monitor = AdvancedTrafficMonitor(interface=interface)
-        self.running = True
+# Tworzenie unikalnej nazwy pliku dla każdej sesji
+log_filename = os.path.join(log_dir, f"cyber_witness_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log")
 
-    async def start(self):
-        """Uruchamia nasłuchiwanie i obsługuje przerwania."""
-        logger.info("CyberWitness uruchomiony.")
-        try:
-            await self.monitor.start_sniffing()
-        except asyncio.CancelledError:
-            pass
-        finally:
-            await self.shutdown()
+# Konfiguracja loggera
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler(log_filename),  # Zapisywanie logów do pliku
+        logging.StreamHandler()  # Wyświetlanie logów w konsoli
+    ]
+)
 
-    async def shutdown(self):
-        """Zatrzymuje nasłuchiwanie i zapisuje raport."""
-        if self.running:
-            logger.info("Zatrzymywanie CyberWitness...")
-            self.running = False
-            await self.monitor.stop_sniffing()
-            logger.info("CyberWitness zakończył działanie.")
+def log_packet(packet_info):
+    """Zapisuje przechwycony pakiet do logów."""
+    logging.info(f"Przechwycono pakiet: {packet_info}")
 
-def main():
-    """Główna funkcja programu."""
-    loop = asyncio.get_event_loop()
-    cw = CyberWitness()
-
-    # Obsługa sygnałów (Windows: KeyboardInterrupt)
-    for sig in (signal.SIGINT, signal.SIGTERM):
-        try:
-            loop.add_signal_handler(sig, lambda: asyncio.create_task(cw.shutdown()))
-        except NotImplementedError:
-            logger.warning("Obsługa sygnałów nie jest wspierana na tym systemie.")
-
-    try:
-        loop.run_until_complete(cw.start())
-    except KeyboardInterrupt:
-        logger.info("Przerwanie ręczne (Ctrl+C).")
-    finally:
-        loop.run_until_complete(cw.shutdown())
-        loop.close()
-
-if __name__ == "__main__":
-    main()
+# Przykładowe użycie w kodzie sniffowania:
+# log_packet("Ether / IP / UDP 192.168.1.1:12345 > 192.168.1.2:80 / Raw")
