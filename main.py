@@ -1,44 +1,43 @@
-import logging
+import sys
 import os
 import asyncio
+import logging
 from datetime import datetime
-from advanced_traffic_monitor import AdvancedTrafficMonitor
 
-# Tworzenie katalogu na logi
+# 🔹 Ustawienie poprawnej ścieżki do `network`
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "network"))
+from advanced_traffic_monitor import AdvancedTrafficMonitor  # ✅ Teraz import działa!
+
+# 🔹 Konfiguracja katalogu logów
 log_dir = "logs"
 os.makedirs(log_dir, exist_ok=True)
 
-# Tworzenie pliku logów dla każdej sesji
-log_filename = os.path.join(log_dir, f"cyberwitness_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log")
+# 🔹 Tworzenie unikalnej nazwy pliku logu
+log_filename = os.path.join(log_dir, f"cyber_witness_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log")
 
-# Konfiguracja loggera
+# 🔹 Konfiguracja logowania (UTF-8 dla Windows!)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler(log_filename),
-        logging.StreamHandler()
+        logging.FileHandler(log_filename, encoding="utf-8"),  # ✅ Poprawione kodowanie
+        logging.StreamHandler(sys.stdout)  # ✅ Obsługuje Windows UTF-8
     ]
 )
 
 async def main():
-    """Główna funkcja uruchamiająca nasłuchiwanie na interfejsie sieciowym"""
-    interface = "eth0"  # Zmień na swój interfejs sieciowy, np. "wlan0" lub "Wi-Fi"
+    """Główna funkcja uruchamiająca monitor ruchu sieciowego."""
+    interface = "WiFi"  # ✅ Windows-friendly interfejs!
+
     monitor = AdvancedTrafficMonitor(interface)
-
-    # Uruchomienie sniffingu w tle
-    sniffing_task = asyncio.create_task(monitor.start_sniffing())
-
-    # Sniffowanie trwa przez 30 sekund, potem zatrzymanie
-    await asyncio.sleep(30)
-    await monitor.stop_sniffing()
-
-    # Zatrzymanie procesu sniffingu
-    sniffing_task.cancel()
+    
     try:
-        await sniffing_task
-    except asyncio.CancelledError:
-        logging.info("Proces sniffingu został zatrzymany.")
+        sniff_task = asyncio.create_task(monitor.start_sniffing())
+        await asyncio.sleep(30)  # 🔹 Sniffowanie przez 30 sekund
+        await monitor.stop_sniffing()
+        await sniff_task
+    except Exception as e:
+        logging.error(f"Błąd główny: {str(e)}")
 
 if __name__ == "__main__":
     asyncio.run(main())

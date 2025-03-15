@@ -8,19 +8,19 @@ from threading import Lock
 class AdvancedTrafficMonitor:
     def __init__(self, interface):
         self.interface = interface
-        self.logger = logging.getLogger("CyberWitness")
-        self.captured_packets = []  # Bufor na przechwycone pakiety
-        self.lock = Lock()  # Synchronizacja dostępu do listy pakietów
-        self.is_sniffing = False  # Flaga kontrolna do zatrzymywania sniffingu
+        self.logger = logging.getLogger(__name__)
+        self.captured_packets = []  # 🔹 Bufor na przechwycone pakiety
+        self.lock = Lock()  # 🔹 Mechanizm synchronizacji
+        self.is_sniffing = False  # 🔹 Flaga kontrolna
 
     def packet_callback(self, packet):
-        """Obsługuje przechwycone pakiety."""
+        """Funkcja wywoływana dla każdego przechwyconego pakietu."""
         if not self.is_sniffing:
             return
 
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_entry = f"{timestamp} - {packet.summary()}\n"
-
+        
         with self.lock:
             self.captured_packets.append(log_entry)
         self.logger.info(f"Przechwycono pakiet: {log_entry.strip()}")
@@ -32,9 +32,9 @@ class AdvancedTrafficMonitor:
             return
 
         filename = f"logs/cyberwitness_report_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt"
-
+        
         try:
-            async with aiofiles.open(filename, "w") as f:
+            async with aiofiles.open(filename, "w", encoding="utf-8") as f:
                 async with self.lock:
                     await f.writelines(self.captured_packets)
                     self.captured_packets.clear()
@@ -43,10 +43,10 @@ class AdvancedTrafficMonitor:
             self.logger.error(f"Błąd zapisu pliku: {str(e)}")
 
     async def start_sniffing(self):
-        """Uruchamia sniffing na wybranym interfejsie."""
+        """Rozpoczyna nasłuchiwanie na wybranym interfejsie."""
         self.is_sniffing = True
         self.logger.info(f"Rozpoczynanie sniffowania na {self.interface}")
-
+        
         try:
             await asyncio.to_thread(
                 scapy.sniff,
@@ -59,8 +59,8 @@ class AdvancedTrafficMonitor:
             self.is_sniffing = False
 
     async def stop_sniffing(self):
-        """Zatrzymuje sniffing i zapisuje raport."""
+        """Kończy nasłuchiwanie i zapisuje raport."""
         self.is_sniffing = False
-        self.logger.info("Zatrzymywanie sniffingu...")
+        self.logger.info("Zatrzymywanie sniffowania...")
         await self.save_report()
         self.logger.info("Sniffowanie zatrzymane.")

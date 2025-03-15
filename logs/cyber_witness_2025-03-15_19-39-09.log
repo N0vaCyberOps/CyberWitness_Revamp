@@ -1,0 +1,852 @@
+2025-03-15 19:39:09,904 [INFO] Rozpoczynanie sniffowania na WiFi
+2025-03-15 19:39:10,170 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP / mDNS Qry b'Manieks-MacBook-Pro.'
+2025-03-15 19:39:10,176 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP / mDNS Qry b'Manieks-MacBook-Pro.'
+2025-03-15 19:39:10,179 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP / mDNS Qry b'iPad-7.'
+2025-03-15 19:39:10,179 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP / mDNS Qry b'iPad-7.'
+2025-03-15 19:39:10,182 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP / mDNS Qry b'mayapc.'
+2025-03-15 19:39:10,192 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP / mDNS Qry b'mayapc.'
+2025-03-15 19:39:10,196 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP / mDNS Qry b'Android.'
+2025-03-15 19:39:10,198 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP / mDNS Qry b'Android.'
+2025-03-15 19:39:10,477 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:10,477 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:10,501 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:10,548 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:10,577 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:10,577 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:10,577 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:10,674 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:10,831 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:10,834 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:10,834 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:10,974 [INFO] Przechwycono pakiet: 2025-03-15 19:39:10 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:11,008 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:11,063 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:11,112 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,196 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.1.101:34957 > 192.168.1.255:15600 / Raw
+2025-03-15 19:39:11,606 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.111:45165 > 192.168.133.255:15600 / Raw
+2025-03-15 19:39:11,724 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,765 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,766 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:11,766 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:11,791 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:11,791 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:11,799 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,799 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,799 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:11,799 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,799 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:11,815 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,841 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:11,841 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:11,881 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,889 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:11,924 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:11,950 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,953 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload / ISAKMP_payload
+2025-03-15 19:39:11,956 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:11,956 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:11,956 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,956 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:11,956 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,965 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,965 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,965 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload / ISAKMP_payload
+2025-03-15 19:39:11,965 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:11,965 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,992 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:11,999 [INFO] Przechwycono pakiet: 2025-03-15 19:39:11 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:12,012 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:12,065 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:12,092 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:12,108 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:12,205 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload_Transform
+2025-03-15 19:39:12,423 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:12,428 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:12,429 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:12,459 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:12,461 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:12,461 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:12,464 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:12,466 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:12,527 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:12,527 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:12,725 [INFO] Przechwycono pakiet: 2025-03-15 19:39:12 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:13,031 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:13,035 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:13,047 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:13,547 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:13,585 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:13,666 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:13,712 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:13,718 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload_Proposal
+2025-03-15 19:39:13,719 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:13,759 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:13,893 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:13,911 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:13,921 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:13,939 [INFO] Przechwycono pakiet: 2025-03-15 19:39:13 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:14,219 [INFO] Przechwycono pakiet: 2025-03-15 19:39:14 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:14,251 [INFO] Przechwycono pakiet: 2025-03-15 19:39:14 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:14,566 [INFO] Przechwycono pakiet: 2025-03-15 19:39:14 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:14,566 [INFO] Przechwycono pakiet: 2025-03-15 19:39:14 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:14,672 [INFO] Przechwycono pakiet: 2025-03-15 19:39:14 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:15,006 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,032 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,094 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,101 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,139 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,211 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:15,222 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:15,224 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:15,493 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,510 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,530 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,555 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,559 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,566 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,568 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,568 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,599 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,601 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,608 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,609 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,636 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,644 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,644 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,646 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,646 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,649 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,667 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,675 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,687 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,693 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,693 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,693 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,693 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,693 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,697 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,698 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,708 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:15,715 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,737 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,740 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:15,742 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,939 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,977 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:15,995 [INFO] Przechwycono pakiet: 2025-03-15 19:39:15 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:16,013 [INFO] Przechwycono pakiet: 2025-03-15 19:39:16 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:16,513 [INFO] Przechwycono pakiet: 2025-03-15 19:39:16 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:16,514 [INFO] Przechwycono pakiet: 2025-03-15 19:39:16 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:16,719 [INFO] Przechwycono pakiet: 2025-03-15 19:39:16 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:17,128 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 192.168.1.101:42387 > 192.168.1.255:15600 / Raw
+2025-03-15 19:39:17,399 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:17,407 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:17,408 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:17,640 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 192.168.133.111:37311 > 192.168.133.255:15600 / Raw
+2025-03-15 19:39:17,946 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:17,951 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:17,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:17,979 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:17,981 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:17,981 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:17,981 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload_Hash
+2025-03-15 19:39:17,981 [INFO] Przechwycono pakiet: 2025-03-15 19:39:17 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,014 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,018 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,020 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,023 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,056 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,056 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,056 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,056 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,063 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,063 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,071 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,073 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,093 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,112 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,114 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,116 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,116 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,145 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,156 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,156 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,161 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,198 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,199 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload_Notify
+2025-03-15 19:39:18,211 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,233 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,240 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,242 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,242 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,244 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,262 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / ARP who has 192.168.133.1 says 192.168.133.152 / Padding
+2025-03-15 19:39:18,269 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,275 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,285 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,370 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,383 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,423 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,512 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,552 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,568 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:18,568 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:18,627 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,660 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,767 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:18,808 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,842 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:18,842 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:18,874 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:18,907 [INFO] Przechwycono pakiet: 2025-03-15 19:39:18 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:19,074 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:19,114 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:19,130 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:19,162 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:19,186 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 192.168.133.1:40655 > 255.255.255.255:29810 / Raw
+2025-03-15 19:39:19,377 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:19,415 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:19,557 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:19,557 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:19,564 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:19,647 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:19,682 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:19,794 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP / NBNSHeader / NBNSQueryRequest who has '\\BRNB422004E6E65'
+2025-03-15 19:39:19,798 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP / mDNS Qry b'BRNB422004E6E65.local.'
+2025-03-15 19:39:19,798 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 192.168.133.152:55195 > 224.0.0.252:llmnr / LLMNRQuery who has 'BRNB422004E6E65.'
+2025-03-15 19:39:19,904 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:19,942 [INFO] Przechwycono pakiet: 2025-03-15 19:39:19 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:20,107 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:20,141 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:20,145 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:20,181 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:20,181 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload_Notify
+2025-03-15 19:39:20,185 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:20,211 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 192.168.133.152:55195 > 224.0.0.252:llmnr / LLMNRQuery who has 'BRNB422004E6E65.'
+2025-03-15 19:39:20,218 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:20,218 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload_Delete
+2025-03-15 19:39:20,258 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:20,358 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:20,391 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:20,391 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:20,399 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:20,443 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:20,816 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / IP / UDP / mDNS Qry b'BRNB422004E6E65.local.'
+2025-03-15 19:39:20,816 [INFO] Przechwycono pakiet: 2025-03-15 19:39:20 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:21,029 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:21,040 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:21,048 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:21,075 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:21,199 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:21,238 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:21,336 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / IP / UDP / NBNSHeader / NBNSQueryRequest who has '\\BRNB422004E6E65'
+2025-03-15 19:39:21,802 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:21,807 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:21,808 [INFO] Przechwycono pakiet: 2025-03-15 19:39:21 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:22,045 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP / NBNSHeader / NBNSQueryRequest who has '\\BRNB422004E6E65'
+2025-03-15 19:39:22,047 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP / mDNS Qry b'BRNB422004E6E65.local.'
+2025-03-15 19:39:22,048 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP 192.168.133.152:50176 > 224.0.0.252:llmnr / LLMNRQuery who has 'BRNB422004E6E65.'
+2025-03-15 19:39:22,069 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:22,132 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:22,175 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:22,453 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP 192.168.133.152:50176 > 224.0.0.252:llmnr / LLMNRQuery who has 'BRNB422004E6E65.'
+2025-03-15 19:39:22,556 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:22,558 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:22,760 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP / NBNSHeader / NBNSQueryRequest who has '\\BRNB422004E6E65'
+2025-03-15 19:39:22,841 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:22,884 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:22,974 [INFO] Przechwycono pakiet: 2025-03-15 19:39:22 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:23,061 [INFO] Przechwycono pakiet: 2025-03-15 19:39:23 - Ether / IP / UDP / mDNS Qry b'BRNB422004E6E65.local.'
+2025-03-15 19:39:23,580 [INFO] Przechwycono pakiet: 2025-03-15 19:39:23 - Ether / IP / UDP / NBNSHeader / NBNSQueryRequest who has '\\BRNB422004E6E65'
+2025-03-15 19:39:23,583 [INFO] Przechwycono pakiet: 2025-03-15 19:39:23 - Ether / IP / UDP 192.168.133.111:39784 > 192.168.133.255:15600 / Raw
+2025-03-15 19:39:24,015 [INFO] Przechwycono pakiet: 2025-03-15 19:39:24 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:24,026 [INFO] Przechwycono pakiet: 2025-03-15 19:39:24 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:24,028 [INFO] Przechwycono pakiet: 2025-03-15 19:39:24 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:24,395 [INFO] Przechwycono pakiet: 2025-03-15 19:39:24 - Ether / ARP who has 192.168.133.108 says 192.168.133.1 / Padding
+2025-03-15 19:39:24,602 [INFO] Przechwycono pakiet: 2025-03-15 19:39:24 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:24,607 [INFO] Przechwycono pakiet: 2025-03-15 19:39:24 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:24,658 [INFO] Przechwycono pakiet: 2025-03-15 19:39:24 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:24,685 [INFO] Przechwycono pakiet: 2025-03-15 19:39:24 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:25,125 [INFO] Przechwycono pakiet: 2025-03-15 19:39:25 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:25,426 [INFO] Przechwycono pakiet: 2025-03-15 19:39:25 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:25,430 [INFO] Przechwycono pakiet: 2025-03-15 19:39:25 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:25,458 [INFO] Przechwycono pakiet: 2025-03-15 19:39:25 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:25,816 [INFO] Przechwycono pakiet: 2025-03-15 19:39:25 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:25,848 [INFO] Przechwycono pakiet: 2025-03-15 19:39:25 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:25,867 [INFO] Przechwycono pakiet: 2025-03-15 19:39:25 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:25,892 [INFO] Przechwycono pakiet: 2025-03-15 19:39:25 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:26,091 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:26,131 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:26,205 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:26,213 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:26,215 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:26,515 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:26,554 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:26,554 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:26,556 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:26,607 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:26,684 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:26,688 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:26,949 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:26,981 [INFO] Przechwycono pakiet: 2025-03-15 19:39:26 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:27,025 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:27,028 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:27,161 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:27,236 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload_ID
+2025-03-15 19:39:27,283 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:27,496 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:27,533 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:27,739 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:27,778 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:27,991 [INFO] Przechwycono pakiet: 2025-03-15 19:39:27 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,056 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,242 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,245 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / 192.168.133.1 > 224.0.0.1 2 / Raw / Padding
+2025-03-15 19:39:28,282 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,375 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:28,380 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:28,380 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:28,494 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,558 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,560 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,566 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,566 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,566 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,590 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,590 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:28,590 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:28,606 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,606 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,606 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,606 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,606 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,622 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,622 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,622 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,622 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,638 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,638 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,638 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,667 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,669 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,675 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,675 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,677 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,677 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,679 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,691 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,702 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,705 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,707 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.1.1:56273 > 192.168.1.255:20002 / Raw
+2025-03-15 19:39:28,709 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,711 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,712 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,713 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,714 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,714 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,716 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,716 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,719 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,729 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,730 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,731 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,731 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,731 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,746 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,746 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,746 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,759 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,761 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,762 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,763 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,764 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,765 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,765 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,768 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,768 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,768 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,768 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,772 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,772 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,772 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,774 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,774 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,776 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,777 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,777 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,797 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,797 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,797 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,797 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,801 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,810 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,810 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,810 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,814 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,815 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,835 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,835 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,835 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,843 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,844 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:28,844 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,844 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,875 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,875 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,875 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,909 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,934 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,942 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:28,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:28,991 [INFO] Przechwycono pakiet: 2025-03-15 19:39:28 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,058 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,083 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload_Nonce
+2025-03-15 19:39:29,125 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,125 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,158 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,192 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,211 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,225 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,225 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,225 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,249 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,265 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:29,265 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:29,275 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,275 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,275 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,275 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:29,291 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,291 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:29,309 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,309 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,317 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.1:40655 > 255.255.255.255:29810 / Raw
+2025-03-15 19:39:29,317 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,317 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,317 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,333 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,341 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,350 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,352 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,359 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:29,360 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,391 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:29,399 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,403 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,467 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,467 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:29,498 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,540 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,565 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,650 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.111:59120 > 192.168.133.255:15600 / Raw
+2025-03-15 19:39:29,650 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,699 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,707 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:29,740 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:29,957 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:29,999 [INFO] Przechwycono pakiet: 2025-03-15 19:39:29 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:30,216 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:30,257 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:30,441 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:30,449 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:30,467 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:30,477 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:30,501 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:30,572 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:30,572 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:30,572 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:30,572 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:30,580 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:30,668 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:30,709 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:30,742 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:30,784 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:30,905 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:30,937 [INFO] Przechwycono pakiet: 2025-03-15 19:39:30 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:31,069 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / 192.168.133.106 > 239.255.255.250 2 / Raw
+2025-03-15 19:39:31,176 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:31,541 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:31,541 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:31,624 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:31,624 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:31,666 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:31,666 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:31,715 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:31,715 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:31,750 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:31,782 [INFO] Przechwycono pakiet: 2025-03-15 19:39:31 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:32,065 [INFO] Przechwycono pakiet: 2025-03-15 19:39:32 - Ether / 192.168.133.106 > 224.0.0.252 2 / Raw
+2025-03-15 19:39:32,739 [INFO] Przechwycono pakiet: 2025-03-15 19:39:32 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:32,748 [INFO] Przechwycono pakiet: 2025-03-15 19:39:32 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:32,755 [INFO] Przechwycono pakiet: 2025-03-15 19:39:32 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:32,994 [INFO] Przechwycono pakiet: 2025-03-15 19:39:32 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:32,994 [INFO] Przechwycono pakiet: 2025-03-15 19:39:32 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:32,994 [INFO] Przechwycono pakiet: 2025-03-15 19:39:32 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:32,994 [INFO] Przechwycono pakiet: 2025-03-15 19:39:32 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,049 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,049 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,055 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,056 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,056 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,056 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,061 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,061 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,061 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,061 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,066 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,068 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,098 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,105 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload_Proposal
+2025-03-15 19:39:33,105 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,137 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,390 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,421 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,568 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / 192.168.133.106 > 224.0.0.251 2 / Raw
+2025-03-15 19:39:33,656 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,695 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,710 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,716 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,719 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,719 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,719 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,726 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,726 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,726 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,726 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,735 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,762 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,766 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,770 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,772 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,774 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,774 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,802 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,802 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,811 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,813 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,813 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,813 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,819 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,821 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,821 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,835 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,851 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,866 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,872 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,875 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,876 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,878 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,881 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,882 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,882 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,882 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,887 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,887 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,887 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,887 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,887 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,895 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,895 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,895 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,895 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,895 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,895 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,895 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,905 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,905 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,905 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,905 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,911 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,911 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,914 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,914 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,914 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,914 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,914 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,922 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload / ISAKMP_payload
+2025-03-15 19:39:33,922 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,922 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,922 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,922 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,928 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,929 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,929 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,929 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,929 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,929 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,937 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,937 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,937 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,937 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,937 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,937 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,945 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,945 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,945 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,945 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,945 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,945 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,945 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,952 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload_Nonce
+2025-03-15 19:39:33,952 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,952 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,952 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,957 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,957 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,957 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,960 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,969 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,970 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,970 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,970 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,970 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,970 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,970 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,977 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,978 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,979 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,980 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:33,980 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,980 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,980 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,980 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,985 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,985 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,985 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,985 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,985 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,985 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,993 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,994 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,994 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,994 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:33,994 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:33,994 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,001 [INFO] Przechwycono pakiet: 2025-03-15 19:39:33 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,003 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,005 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,005 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload / ISAKMP_payload
+2025-03-15 19:39:34,005 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,005 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,009 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,009 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,009 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,009 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,009 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,009 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,009 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,009 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,018 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,018 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,018 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,018 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,022 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,022 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,022 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,026 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,026 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,026 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,026 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,026 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,026 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,026 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,026 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,034 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,034 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,034 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,034 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,034 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,034 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,034 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,034 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,043 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,043 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,044 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,044 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,044 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,044 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,044 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,044 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,050 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,050 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,050 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,050 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,050 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,050 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,057 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,057 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,059 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,059 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,059 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,059 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,059 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,059 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,059 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,067 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,067 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,067 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,067 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,067 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,067 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,067 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,067 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,067 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,075 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload_SA
+2025-03-15 19:39:34,075 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,075 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,075 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,075 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,075 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,083 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,083 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,083 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,083 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,083 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,083 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,083 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,091 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload_Delete
+2025-03-15 19:39:34,091 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,091 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,091 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload_Proposal
+2025-03-15 19:39:34,091 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,100 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,100 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,100 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,100 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,100 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,100 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,109 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,109 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,109 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,109 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,109 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,115 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,115 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,115 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,285 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,323 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,418 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,425 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,431 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,477 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,506 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,513 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,515 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,517 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,519 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,521 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,522 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,528 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,530 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,530 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,532 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,532 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,534 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,592 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:34,595 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:34,597 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,599 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,601 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,602 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,603 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:34,605 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,605 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,641 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:34,641 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:34,906 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:34,911 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:34,911 [INFO] Przechwycono pakiet: 2025-03-15 19:39:34 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:35,251 [INFO] Przechwycono pakiet: 2025-03-15 19:39:35 - Ether / IP / UDP 192.168.1.101:57351 > 192.168.1.255:15600 / Raw
+2025-03-15 19:39:35,314 [INFO] Przechwycono pakiet: 2025-03-15 19:39:35 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:35,355 [INFO] Przechwycono pakiet: 2025-03-15 19:39:35 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:35,355 [INFO] Przechwycono pakiet: 2025-03-15 19:39:35 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:35,391 [INFO] Przechwycono pakiet: 2025-03-15 19:39:35 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:35,391 [INFO] Przechwycono pakiet: 2025-03-15 19:39:35 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:35,413 [INFO] Przechwycono pakiet: 2025-03-15 19:39:35 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:35,571 [INFO] Przechwycono pakiet: 2025-03-15 19:39:35 - Ether / 192.168.133.106 > 239.255.102.18 2 / Raw
+2025-03-15 19:39:35,573 [INFO] Przechwycono pakiet: 2025-03-15 19:39:35 - Ether / IP / UDP 192.168.133.111:42188 > 192.168.133.255:15600 / Raw
+2025-03-15 19:39:36,578 [INFO] Przechwycono pakiet: 2025-03-15 19:39:36 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:36,578 [INFO] Przechwycono pakiet: 2025-03-15 19:39:36 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:36,643 [INFO] Przechwycono pakiet: 2025-03-15 19:39:36 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:36,682 [INFO] Przechwycono pakiet: 2025-03-15 19:39:36 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:37,068 [INFO] Przechwycono pakiet: 2025-03-15 19:39:37 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:37,078 [INFO] Przechwycono pakiet: 2025-03-15 19:39:37 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:37,079 [INFO] Przechwycono pakiet: 2025-03-15 19:39:37 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:37,236 [INFO] Przechwycono pakiet: 2025-03-15 19:39:37 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:37,269 [INFO] Przechwycono pakiet: 2025-03-15 19:39:37 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:37,301 [INFO] Przechwycono pakiet: 2025-03-15 19:39:37 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:37,414 [INFO] Przechwycono pakiet: 2025-03-15 19:39:37 - Ether / IP / UDP 192.168.133.107:53805 > 255.255.255.255:53805 / Raw / Padding
+2025-03-15 19:39:38,027 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP / mDNS Ans b'mayapc._dosvc._tcp.local.'
+2025-03-15 19:39:38,027 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP / mDNS Qry b'mayapc._dosvc._tcp.local.'
+2025-03-15 19:39:38,027 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:38,044 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,044 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload_Nonce
+2025-03-15 19:39:38,044 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,117 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,141 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:38,226 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:38,229 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP / mDNS Qry b'mayapc._dosvc._tcp.local.'
+2025-03-15 19:39:38,229 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:38,259 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,260 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:38,277 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,301 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,425 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.152:56085 > 224.0.0.252:llmnr / LLMNRQuery who has 'BRNB422004E6E65.'
+2025-03-15 19:39:38,435 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.152:54292 > 224.0.0.252:llmnr / LLMNRQuery who has 'BRNB422004E6E65.'
+2025-03-15 19:39:38,493 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:38,535 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:38,542 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP / mDNS Qry b'mayapc._dosvc._tcp.local.'
+2025-03-15 19:39:38,545 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x88e1) / Raw
+2025-03-15 19:39:38,545 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - cc:ce:1e:02:e9:59 > ff:ff:ff:ff:ff:ff (0x8912) / Raw
+2025-03-15 19:39:38,607 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,626 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,649 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,651 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:38,745 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP / NBNSHeader / NBNSQueryRequest who has '\\BRNB422004E6E65'
+2025-03-15 19:39:38,748 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:38,796 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:38,848 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP / mDNS Ans b'mayapc._dosvc._tcp.local.'
+2025-03-15 19:39:38,852 [INFO] Przechwycono pakiet: 2025-03-15 19:39:38 - Ether / IP / UDP / mDNS Ans
+2025-03-15 19:39:39,003 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:39,016 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:39,016 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:39,018 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:39,020 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:39,022 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:39,024 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:39,038 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:39,047 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP / mDNS Qry b'BRNB422004E6E65.local.'
+2025-03-15 19:39:39,048 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP / mDNS Qry b'BRNB422004E6E65.local.'
+2025-03-15 19:39:39,048 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:39,050 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:39,255 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:39,292 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:39,349 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / ARP who has 192.168.133.1 says 192.168.133.106
+2025-03-15 19:39:39,355 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / ARP who has 192.168.1.1 says 192.168.1.101 / Padding
+2025-03-15 19:39:39,355 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:39,358 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / Dot1Q / ARP is at 6c:5a:b0:05:cf:0d says 192.168.133.1 / Padding
+2025-03-15 19:39:39,365 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / Raw
+2025-03-15 19:39:39,367 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:39,468 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.1:40655 > 255.255.255.255:29810 / Raw
+2025-03-15 19:39:39,500 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 192.168.133.106:64175 > 79.127.146.206:isakmp / ISAKMP / Raw
+2025-03-15 19:39:39,540 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP 79.127.146.206:isakmp > 192.168.133.106:64175 / ISAKMP / ISAKMP_payload
+2025-03-15 19:39:39,571 [INFO] Przechwycono pakiet: 2025-03-15 19:39:39 - Ether / IP / UDP / NBNSHeader / NBNSQueryRequest who has '\\BRNB422004E6E65'
+2025-03-15 19:39:39,912 [INFO] Zatrzymywanie sniffowania...
+2025-03-15 19:39:39,933 [ERROR] Błąd zapisu pliku: '_thread.lock' object does not support the asynchronous context manager protocol
+2025-03-15 19:39:39,933 [INFO] Sniffowanie zatrzymane.
