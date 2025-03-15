@@ -1,74 +1,91 @@
 import asyncio
 import signal
 import logging
-import datetime
+import scapy.all as scapy
 from network.advanced_traffic_monitor import AdvancedTrafficMonitor
 from database.database_handler import DatabaseHandler
 from alerts.alert_coordinator import AlertCoordinator
-import scapy.all as scapy
+from datetime import datetime
 
-# Ustawienia logowania
+# Konfiguracja logowania
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-# Automatyczna nazwa pliku z logami
-now = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-log_filename = f"packet_log_{now}.txt"
-
 class CyberWitness:
     def __init__(self):
-        # Sprawdź dostępne interfejsy
         self.interface = self.detect_network_interface()
-        logger.info(f"Używany interfejs: {self.interface}")
+        if not self.interface:
+            logger.error("Brak dostępnego interfejsu do nasłuchiwania!")
+            exit(1)
 
-        # Inicjalizacja komponentów
         self.db = DatabaseHandler()
         self.alert_coordinator = AlertCoordinator(self.db)
         self.monitor = AdvancedTrafficMonitor(self.db, self.alert_coordinator, self.interface)
 
     def detect_network_interface(self):
-        """Automatycznie wykrywa poprawną nazwę interfejsu."""
-        interfaces = {iface.name for iface in scapy.get_if_list()}
-        logger.info(f"Dostępne interfejsy: {interfaces}")
+        """ Wykrywa interfejs sieciowy i wybiera najlepszy. """
+        try:
+            interfaces = scapy.get_if_list()  # Pobiera listę interfejsów
+            logger.info(f"Dostępne interfejsy: {interfaces}")
 
-        possible_interfaces = [
-            "Intel(R) Wi-Fi 6E AX211 160MHz",
-            "VMware Virtual Ethernet Adapter for VMnet8",
-            "Wi-Fi",
-            "Ethernet"
-        ]
+            # Priorytetowe nazwy interfejsów
+            preferowane = ["Wi-Fi", "Ethernet", "Intel", "wlan", "eth"]
 
-        for iface in possible_interfaces:
-            if iface in interfaces:
-                return iface
+            # Przeszukujemy dostępne interfejsy i wybieramy najlepszy
+            for iface in interfaces:
+                if any(p in iface for p in preferowane):
+                    logger.info(f"Wybrany interfejs: {iface}")
+                    return iface
 
-        logger.warning("Nie znaleziono pasującego interfejsu! Używanie domyślnego.")
-        return list(interfaces)[0] if interfaces else "lo"
+            # Jeśli żaden nie pasuje, wybierz pierwszy dostępny
+            logger.warning("Nie znaleziono pasującego interfejsu. Używanie pierwszego dostępnego.")
+            return interfaces[0] if interfaces else None
+        except Exception as e:
+            logger.error(f"Błąd detekcji interfejsu: {e}")
+            return None
 
-    async def start(self):
-        """Uruchamia nasłuchiwanie ruchu sieciowego."""
-        await self.monitor.start()
+    async def generate_report(self):
+        """ Tworzy plik raportu z przechwyconymi danymi. """
+        filename = f"cyberwitness_report_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.txt"
+        with open(filename, "w", encoding="utf-8") as report:
+            report.write("==== Raport CyberWitness ====\n")
+            report.write(f"Data: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            report.write(f"Interfejs: {self.interface}\n")
+            report.write("\n--- Wykryte pakiety ---\n")
 
-    async def graceful_shutdown(self, sig=None):
-        """Zamknięcie programu."""
-        logger.info(f"Zamykanie aplikacji ({sig.name if sig else 'manual'})...")
+            # Pobranie logów z monitorowania
+            logs = self.monitor.get_captured_packets()
+            for log in logs:
+                report.write(log + "\n")
+
+        logger.info(f"Zapisano raport: {filename}")
+
+    async def graceful_shutdown(self, sig):
+        """ Obsługuje zamykanie aplikacji. """
+        logger.info(f"Otrzymano sygnał {sig.name}, zatrzymywanie aplikacji...")
         await self.monitor.stop()
         await self.db.close()
-        logger.info("Zamknięto poprawnie.")
+        await self.generate_report()
+        logger.info("Zakończono działanie CyberWitness.")
 
 async def async_main():
-    """Główna funkcja asynchroniczna."""
     cw = CyberWitness()
 
-    # Obsługa sygnałów zamknięcia
     loop = asyncio.get_event_loop()
+
+    # Obsługa zamknięcia programu (Windows/Linux)
+    if hasattr(signal, "SIGTERM"):
+        loop.add_signal_handler(signal.SIGTERM, lambda: asyncio.create_task(cw.graceful_shutdown(signal.SIGTERM)))
     if hasattr(signal, "SIGINT"):
         loop.add_signal_handler(signal.SIGINT, lambda: asyncio.create_task(cw.graceful_shutdown(signal.SIGINT)))
 
-    await cw.start()
+    await cw.monitor.start()
 
 def main():
-    asyncio.run(async_main())
+    try:
+        asyncio.run(async_main())
+    except KeyboardInterrupt:
+        logger.info("Zatrzymano ręcznie przez użytkownika.")
 
 if __name__ == "__main__":
     main()
