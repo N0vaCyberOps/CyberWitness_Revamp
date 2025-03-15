@@ -1,29 +1,25 @@
 import asyncio
-import signal
 import logging
 from network.advanced_traffic_monitor import TrafficMonitor
 from database.database_handler import DatabaseHandler
 from alerts.alert_coordinator import AlertCoordinator
+import sys
 
 logger = logging.getLogger(__name__)
 
 class CyberWitness:
     def __init__(self):
         self.db = DatabaseHandler()
-        self.alert_coordinator = None
-        self.monitor = None
+        self.alert_coordinator = AlertCoordinator(self.db)
+        self.monitor = TrafficMonitor(self.db, self.alert_coordinator)
         self.queue = asyncio.Queue(maxsize=1000)
-        self.running = False
-        self.sniffer_alive = asyncio.Event()
+        self.running = True
 
     async def initialize_components(self):
         await self.db.initialize()
-        self.alert_coordinator = AlertCoordinator(self.db)
-        self.monitor = TrafficMonitor(self.db, self.alert_coordinator)
+        await self.monitor.start()
 
     async def packet_processing(self):
-        self.running = True
-        self.sniffer_alive.set()
         while self.running:
             try:
                 packet = await asyncio.wait_for(self.queue.get(), timeout=1.0)
@@ -31,53 +27,68 @@ class CyberWitness:
             except asyncio.TimeoutError:
                 continue
             except Exception as e:
-                logger.error(f"Błąd przetwarzania pakietu: {e}", exc_info=True)
+                logger.error(f"Packet processing error: {e}")
                 await self.restart_sniffer()
 
     async def watchdog(self):
         while self.running:
             await asyncio.sleep(30)
-            if not self.sniffer_alive.is_set():
-                logger.warning("Sniffer nieaktywny, restart...")
-                await self.restart_sniffer()
+            if not self.monitor.sniffer.running:
+                logger.warning("Sniffer inactive, restarting...")
+                await self.monitor.restart()
 
     async def restart_sniffer(self):
         backoff = 2
         for attempt in range(5):
             try:
                 await self.monitor.restart()
-                self.sniffer_alive.set()
-                logger.info(f"Sniffer zrestartowany (próba {attempt + 1})")
+                logger.info(f"Sniffer restarted (attempt {attempt + 1})")
                 return
             except Exception as e:
-                logger.error(f"Restart nieudany: {e}")
+                logger.error(f"Restart failed: {e}")
                 await asyncio.sleep(backoff)
                 backoff *= 2
-        logger.critical("Krytyczna awaria sniffera")
+        logger.critical("Critical sniffer failure!")
         await self.graceful_shutdown()
 
-    async def graceful_shutdown(self, sig=None):
+    async def graceful_shutdown(self):
         self.running = False
-        self.sniffer_alive.clear()
         await self.monitor.stop()
         await self.db.close()
-        logger.info(f"System zamknięty ({sig.name if sig else 'ręcznie'})")
+        logger.info("Shutdown complete.")
+
+    async def initialize_components(self):
+        await self.db._init_db()
+        await self.monitor.start()
 
 async def async_main():
     cw = CyberWitness()
     await cw.initialize_components()
-    loop = asyncio.get_event_loop()
-    for sig in (signal.SIGINT, signal.SIGTERM):
-        loop.add_signal_handler(sig, lambda: asyncio.create_task(cw.graceful_shutdown(sig)))
+    cw.running = True
 
-    await asyncio.gather(
-        cw.watchdog(),
-        cw.packet_processing()
-    )
+    tasks = [
+        asyncio.create_task(cw.packet_processing()),
+        asyncio.create_task(cw.monitor.start()),
+    ]
+
+    try:
+        await asyncio.gather(*tasks)
+    except asyncio.CancelledError:
+        pass
+    finally:
+        await cw.monitor.stop()
+        await cw.db.close()
 
 def main():
     logging.basicConfig(level=logging.INFO)
-    asyncio.run(async_main())
+    if sys.platform == 'win32':
+        try:
+            asyncio.run(async_main())
+        except KeyboardInterrupt:
+            logger.info("Zamknięto aplikację za pomocą Ctrl+C")
+    else:
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(async_main())
 
 if __name__ == "__main__":
     main()
