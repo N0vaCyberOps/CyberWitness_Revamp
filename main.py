@@ -1,22 +1,22 @@
 import asyncio
 import logging
+import signal
 from network.advanced_traffic_monitor import TrafficMonitor
 from database.database_handler import DatabaseHandler
 from alerts.alert_coordinator import AlertCoordinator
-import sys
 
 logger = logging.getLogger(__name__)
 
 class CyberWitness:
-    def __init__(self):
+    def __init__(self, interface='Ethernet', fallback_interface='Wi-Fi'):
         self.db = DatabaseHandler()
         self.alert_coordinator = AlertCoordinator(self.db)
-        self.monitor = TrafficMonitor(self.db, self.alert_coordinator)
+        self.monitor = TrafficMonitor(self.db, self.alert_coordinator, interface, fallback_interface)
         self.queue = asyncio.Queue(maxsize=1000)
         self.running = True
 
     async def initialize_components(self):
-        await self.db.initialize()
+        await self.db._init_db()
         await self.monitor.start()
 
     async def packet_processing(self):
@@ -33,8 +33,8 @@ class CyberWitness:
     async def watchdog(self):
         while self.running:
             await asyncio.sleep(30)
-            if not self.monitor.sniffer.running:
-                logger.warning("Sniffer inactive, restarting...")
+            if not self.monitor.is_running():
+                logger.warning("Sniffer inactive - restarting...")
                 await self.monitor.restart()
 
     async def restart_sniffer(self):
@@ -51,44 +51,25 @@ class CyberWitness:
         logger.critical("Critical sniffer failure!")
         await self.graceful_shutdown()
 
-    async def graceful_shutdown(self):
+    async def graceful_shutdown(self, sig=None):
         self.running = False
         await self.monitor.stop()
         await self.db.close()
-        logger.info("Shutdown complete.")
-
-    async def initialize_components(self):
-        await self.db._init_db()
-        await self.monitor.start()
+        logger.info(f"Shutdown complete ({sig.name if sig else 'manual'}).")
 
 async def async_main():
-    cw = CyberWitness()
+    cw = CyberWitness(interface='Ethernet', fallback_interface='Wi-Fi')
     await cw.initialize_components()
-    cw.running = True
 
-    tasks = [
-        asyncio.create_task(cw.packet_processing()),
-        asyncio.create_task(cw.monitor.start()),
-    ]
+    loop = asyncio.get_running_loop()
+    for sig in (signal.SIGINT, signal.SIGTERM):
+        loop.add_signal_handler(sig, lambda sig=sig: asyncio.create_task(cw.graceful_shutdown(sig)))
 
-    try:
-        await asyncio.gather(*tasks)
-    except asyncio.CancelledError:
-        pass
-    finally:
-        await cw.monitor.stop()
-        await cw.db.close()
+    await asyncio.gather(cw.watchdog(), cw.packet_processing())
 
 def main():
     logging.basicConfig(level=logging.INFO)
-    if sys.platform == 'win32':
-        try:
-            asyncio.run(async_main())
-        except KeyboardInterrupt:
-            logger.info("Zamknięto aplikację za pomocą Ctrl+C")
-    else:
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(async_main())
+    asyncio.run(async_main())
 
 if __name__ == "__main__":
     main()
